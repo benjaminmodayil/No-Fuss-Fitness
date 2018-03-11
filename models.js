@@ -22,6 +22,7 @@ const mealSchema = mongoose.Schema({
 
 const exerciseSchema = mongoose.Schema({
   title: { type: String, required: 'Please type in an exercise!', trim: true },
+  date: { type: Date, default: Date.now() },
   type: { type: String, required: true },
   reps: { type: Number },
   sets: { type: Number },
@@ -41,7 +42,22 @@ mealSchema.virtual('dayName').get(function() {
   return week[this.time.getUTCDay()]
 })
 
+exerciseSchema.virtual('dayName').get(function() {
+  return week[this.date.getUTCDay()]
+})
+
 mealSchema.methods.serialize = function() {
+  return {
+    id: this._id,
+    title: this.title,
+    time: this.time,
+    dayName: this.dayName,
+    calories: this.calories,
+    imageURL: this.imageURL
+  }
+}
+
+exerciseSchema.methods.serialize = function() {
   return {
     id: this._id,
     title: this.title,

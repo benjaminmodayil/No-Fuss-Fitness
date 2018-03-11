@@ -73,7 +73,7 @@ router.get('/:id', (req, res, next) => {
 })
 
 router.post('/', (req, res) => {
-  const requiredFields = ['title']
+  const requiredFields = ['title', 'type']
 
   for (let i = 0; i < requiredFields.length; i++) {
     const field = requiredFields[i]
@@ -86,9 +86,13 @@ router.post('/', (req, res) => {
 
     Exercise.create({
       title: req.body.title,
-      calories: req.body.calories,
+      date: req.body.date,
+      type: req.body.type,
+      reps: req.body.reps,
+      sets: req.body.sets,
+      distance: req.body.distance,
       time: req.body.time,
-      imageURL: req.body.imageURL
+      calories: req.body.calories
     })
       .then(exercise => {
         console.log(exercise)
@@ -122,7 +126,16 @@ router.put('/:id', (req, res, next) => {
   }
 
   const updated = {}
-  const updateableFields = ['title', 'weight', 'height', 'date']
+  const updateableFields = [
+    'title',
+    'date',
+    'type',
+    'reps',
+    'sets',
+    'distance',
+    'time',
+    'calories'
+  ]
 
   updateableFields.forEach(field => {
     if (field in req.body) {

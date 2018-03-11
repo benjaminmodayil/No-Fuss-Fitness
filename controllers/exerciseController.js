@@ -39,7 +39,7 @@ exports.exercisesPage = (req, res, next) => {
 
   if (req.query.from) {
     Exercise.find({
-      time: {
+      date: {
         $gte: new Date(`${req.query.from}`),
         $lt: new Date(`${req.query.to}`)
       }
@@ -52,7 +52,7 @@ exports.exercisesPage = (req, res, next) => {
     })
   } else {
     Exercise.find({
-      time: {
+      date: {
         $gte: new Date(`${getDay('Sunday')}`)
       }
     })
@@ -69,6 +69,7 @@ exports.exercisesPage = (req, res, next) => {
         return weekDays
       })
       .then(items => {
+        console.log(items)
         res.render('exercises', {
           title: 'Exercise Log',
           weekDays: items,

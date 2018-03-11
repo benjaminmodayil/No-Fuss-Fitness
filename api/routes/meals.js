@@ -122,7 +122,7 @@ router.put('/:id', (req, res, next) => {
   }
 
   const updated = {}
-  const updateableFields = ['title', 'weight', 'height', 'date']
+  const updateableFields = ['title', 'calories', 'time', 'imageURL']
 
   updateableFields.forEach(field => {
     if (field in req.body) {
