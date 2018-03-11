@@ -1,0 +1,28 @@
+{
+  "name": "nofuss",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "mocha --exit",
+    "dev": "concurrently --kill-others \"npm start\" \"gulp\""
+  },
+  "dependencies": {
+    "body-parser": "~1.18.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.15.5",
+    "hbs": "^4.0.1",
+    "mongoose": "^5.0.7",
+    "morgan": "~1.9.0",
+    "pug": "2.0.0-beta11",
+    "serve-favicon": "~2.4.5"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^3.1.0",
+    "run-sequence": "^2.2.1"
+  }
+}

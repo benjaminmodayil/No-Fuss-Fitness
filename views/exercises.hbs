@@ -1,0 +1,41 @@
+<a href="/">Back to overview</a>
+<h1>{{title}}</h1>
+
+<form method="POST" class="exercise-form">
+  <label class="block screenreader-only" for="exercise-title">Title</label>
+  <input class="block" type="text" id="exercise-title" name="exercise Entry" value="Title" placeholder="exercise name" required
+    autocomplete="off" aria-required="true">
+  <label class="block screenreader-only" for="exercise-calories">Description</label>
+  <input class="block" type="text" id="exercise-calories" name="exercise calories" placeholder="0">
+  <label class="block screenreader-only" for="exercise-date">Date</label>
+  <input class="block" type="date" id="exercise-date" name="Date Entry">
+  <button>exercise +</button>
+</form>
+{{date}}
+
+<h1>{{h.siteName}}</h1>
+<main role="main">
+  {{#each weekDays}}
+  <header data-date="{{dateRender name}}">
+    <h2>{{name}}</h2>
+    <button class="modal-launch">+</button>
+  </header>
+  <ul>
+    {{#each exercises}}
+    <article data-id={{id}}>
+      <details>
+        <summary>{{title}}</summary>
+        <div>
+          {{!--
+          <img src="http://via.placeholder.com/350x150" alt=""> --}}
+          <span>{{time}}</span>
+          <span>{{calories}} cals</span>
+          <button class="exercise-edit">edit</button>
+          <button class="exercise-delete">delete</button>
+        </div>
+      </details>
+    </article>
+    {{/each}}
+  </ul>
+  {{/each}}
+</main>
