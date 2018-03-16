@@ -1,13 +1,60 @@
-<a href="/">Back to overview</a>
-<h1>{{title}}</h1>
+<main class="overview wrapper wrapper-1030 m-center" role="main" data-module="ChartDashboard">
+  <div class="quick-stats">
+    <article class="stats stats__goal bg-white b-shadow p-y-16 p-x-24 b-r-4">
+      <h2 class="h2 f-s-18 text-black font-normal">Goal:</h2>
+      <p class="stats__goal__data text-blue font-bold f-s-18">To lose weight and be happy.</p>
+    </article>
+    <article class="stats stats__weight bg-white b-shadow p-y-16 p-x-24 b-r-4">
+      <h2 class="h2 f-s-18 text-black font-normal">Weight:</h2>
+      <div class="stats__weight__data">
+        <p class="stats__weight__data__inner">
+          <span class="data__number text-blue font-bold f-s-36">183</span>
+          <span class="data__metric text-blue font-bold f-s-28">lbs</span>
+        </p>
+        <div class="stats__weight__data__comparison">
+          <p class="comparison__number m-bottom-8">
+            <span class="text-green font-bold f-s-28">-3</span>
+            <span class="f-s-18">lbs</span>
+          </p>
+          <span class="comparison__reference f-s-14 italic">since last week</span>
+        </div>
+      </div>
+    </article>
+    <article class="stats stats__bmi bg-white b-shadow p-y-16 p-x-24 b-r-4">
+      <h2 class="h2 f-s-18 text-black font-normal">BMI:</h2>
+      <div class="stats__bmi__data">
+        <p class="stats__bmi__data__result">
+          <span class="result__number text-blue font-bold f-s-36">28.4</span>
+        </p>
+        <div class="stats__bmi__data__comparison">
+          <p class="comparison__number m-bottom-8">
+            <span class="text-red font-bold f-s-28">-3</span>
+            <span class="f-s-18">units</span>
+          </p>
+          <span class="comparison__reference f-s-14 italic">since last week</span>
+        </div>
+      </div>
+    </article>
+  </div>
 
-{{date}}
+  <div class="form-and-graph flex m-top-80">
+    <div class="daily-log bg-white b-shadow b-r-4" data-module="DailyLog">
+      <h2 class="h2 italic m-bottom-24 font-normal f-s-18">Daily Log</h2>
 
-<h1>{{h.siteName}}</h1>
-<main role="main">
-  <h2>Overview Page</h2>
-  <a class="block" href="/meals">Meals</a>
-  <a class="block" href="/meals/api">API</a>
-  <a class="block" href="/exercises">Exercises</a>
-  <a class="block" href="/exercises/api">API</a>
+      <form method="POST" class="m-bottom-64">
+        <label class="block font-bold f-s-18 text-blue m-bottom-14" for="weight">Weight:</label>
+        <input type="text" id="weight" name="weight">
+        <button class="daily-log__form-button bg-blue" type="submit">➡️</button>
+      </form>
+
+      <div class="daily-log__buttons">
+        <button class="log__buttons m-center text-blue p-14 block m-bottom-24">new exercise</button>
+        <button class="log__buttons m-center text-blue p-14 block">new meal</button>
+      </div>
+    </div>
+
+    <div class="graph bg-white b-shadow p-16 b-r-4">
+      <canvas id="myChart"></canvas>
+    </div>
+  </div>
 </main>

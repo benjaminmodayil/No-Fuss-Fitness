@@ -1,0 +1,14 @@
+// Global CSS goes here
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: color(black);
+  font-family: $f-robo;
+}
+
+main {
+  padding-bottom: 10vh;
+  padding-top: 10vh;
+}

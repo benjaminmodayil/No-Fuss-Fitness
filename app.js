@@ -15,9 +15,9 @@ var meals = require('./routes/meals')
 var mealsAPI = require('./api/routes/meals')
 var exercises = require('./routes/exercises')
 var exercisesAPI = require('./api/routes/exercises')
+var progressAPI = require('./api/routes/progress')
 
 var moment = require('moment')
-moment().format()
 
 var helpers = require('./helpers')
 
@@ -61,6 +61,7 @@ app.use('/meals', meals)
 app.use('/meals/api', mealsAPI)
 app.use('/exercises', exercises)
 app.use('/exercises/api', exercisesAPI)
+app.use('/progress/api', progressAPI)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

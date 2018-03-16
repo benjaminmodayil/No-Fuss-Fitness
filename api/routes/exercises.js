@@ -3,59 +3,29 @@ var router = express.Router()
 
 const { Exercise } = require('../../models')
 
-const week = [
-  'Sunday',
-  'Monday',
-  'Tuesday',
-  'Wednesday',
-  'Thursday',
-  'Friday',
-  'Saturday'
-]
-
-function getSunday(date) {
-  var day = date.getUTCDay() || 7
-  if (day !== 0) date.setUTCHours(-24 * (day - 0))
-  return date
-}
-
-function formatToDate(date) {
-  let val, valYear, valMonth, valDay
-
-  valYear = `${date.getUTCFullYear()}`
-  valDay = `${date.getUTCDate()}`
-
-  valMonth = `${date.getUTCMonth()}`
-
-  if (valMonth.length === 1) {
-    valMonth = `0${valMonth}`
-  }
-  if (valDay.length === 1) {
-    valDay = `0${valDay}`
-  }
-
-  return `${valYear}-${valMonth}-${valDay}`
-}
-
 router.get('/', function(req, res, next) {
   if (req.query.from) {
     Exercise.find({
-      time: {
+      date: {
         $gte: new Date(`${req.query.from}`),
         $lt: new Date(`${req.query.to}`)
       }
-    }).then(items => {
-      res.json({
-        exercises: items
-      })
     })
+      .sort({ created: -1 })
+      .then(items => {
+        res.json({
+          exercises: items
+        })
+      })
   } else {
-    Exercise.find().then(items => {
-      res.json({
-        exercises: items
+    Exercise.find()
+      .sort({ created: -1 })
+      .then(items => {
+        res.json({
+          exercises: items
+        })
+        return items
       })
-      return items
-    })
   }
 })
 
@@ -83,27 +53,27 @@ router.post('/', (req, res) => {
       console.error(message)
       return res.status(400).send(message)
     }
-
-    Exercise.create({
-      title: req.body.title,
-      date: req.body.date,
-      type: req.body.type,
-      reps: req.body.reps,
-      sets: req.body.sets,
-      distance: req.body.distance,
-      time: req.body.time,
-      calories: req.body.calories
-    })
-      .then(exercise => {
-        console.log(exercise)
-        res.status(201)
-        res.json(exercise)
-      })
-      .catch(err => {
-        console.error(err)
-        res.status(500).json({ error: 'Something went wrong.' })
-      })
   }
+
+  Exercise.create({
+    title: req.body.title,
+    date: req.body.date,
+    type: req.body.type,
+    reps: req.body.reps,
+    sets: req.body.sets,
+    distance: req.body.distance,
+    time: req.body.time,
+    calories: req.body.calories
+  })
+    .then(exercise => {
+      console.log(exercise)
+      res.status(201)
+      res.json(exercise)
+    })
+    .catch(err => {
+      console.error(err)
+      res.status(500).json({ error: 'Something went wrong.' })
+    })
 })
 
 router.delete('/:id', (req, res, next) => {

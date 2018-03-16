@@ -3,16 +3,40 @@
 
 <head>
   <title>{{title}}</title>
-  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' href='/dist/style.css' />
 </head>
 
-<body class="p-x-16">
-  {{{body}}}
+<body>
+  <header class="global-header bg-white p-x-14 p-y-8">
+    <a href="#hide-menu" class="no-underline">
+      <img src="/images/icons/icon-menu.svg" alt="">
+      <span>hide menu</span>
+    </a>
+    <a class="font-serif text-blue no-underline font-bold f-s-18" href="/overview">{{h.siteName}}</a>
+    <a class="global-header__logout btn bg-green p-x-24 p-y-8 font-sans font-bold text-white no-underline" href="/logout">Log out</a>
+  </header>
+  <div class="nav-main-container">
+    <nav class="global-nav bg-blue p-x-24 p-top-64">
+      <a href="/meals" class="text-white no-underline m-bottom-32">
+        <img src="#" alt="">
+        <span>Log Meals</span>
+      </a>
+      <a href="/exercises" class="text-white no-underline m-bottom-32">
+        <img src="#" alt="">
+        <span>Add Exercises</span>
+      </a>
+      <a href="/overview" class="text-white no-underline m-bottom-32">
+        <img src="#" alt="">
+        <span>Track Mental Health</span>
+      </a>
+    </nav>
+    {{{body}}}
+  </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
   <script>
     moment().format();
   </script>
-  <script src="/javascripts/rendered/all.js"></script>
+  <script src="/dist/App.bundle.js"></script>
 </body>
 
 </html>

@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Merriweather:300,400,400i,700|Raleway:300,400,400i,500,500i,600,600i,700');
-$f-body: 'Merriweather', serif;
-$f-heading: 'Raleway', sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Patua+One|Roboto:300,300i,400,400i,500,500i,700,700i');
+$f-robo: 'Roboto', sans-serif;
+$f-patua: 'Patua One', cursive;
 
 @function strip-unit($value) {
   @return $value / ($value * 0 + 1);
@@ -17,9 +17,8 @@ $f-heading: 'Raleway', sans-serif;
       font-size: $min-font-size;
       @media screen and (min-width: $min-vw) {
         font-size: calc(
-          #{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((
-                  100vw - #{$min-vw}
-                ) / #{strip-unit($max-vw - $min-vw)})
+          #{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} *
+            ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})
         );
       }
 
@@ -31,11 +30,11 @@ $f-heading: 'Raleway', sans-serif;
 }
 
 .font-sans {
-  font-family: $f-heading;
+  font-family: $f-robo;
 }
 
 .font-serif {
-  font-family: $f-body;
+  font-family: $f-patua;
 }
 
 $font-sizes: '14', '16', '18', '20', '24', '28', '36', '48', '56', '96';

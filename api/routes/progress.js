@@ -1,11 +1,15 @@
 var express = require('express')
 var router = express.Router()
+var moment = require('moment')
 
-const { Meal } = require('../../models')
+var today = moment().startOf('day')
+var tomorrow = moment(today).add(1, 'days')
+
+const { Progress } = require('../../models')
 
 router.get('/', function(req, res, next) {
   if (req.query.from) {
-    Meal.find({
+    Progress.find({
       date: {
         $gte: new Date(`${req.query.from}`),
         $lt: new Date(`${req.query.to}`)
@@ -14,15 +18,15 @@ router.get('/', function(req, res, next) {
       .sort({ created: -1 })
       .then(items => {
         res.json({
-          meals: items
+          progress: items
         })
       })
   } else {
-    Meal.find()
+    Progress.find()
       .sort({ created: -1 })
       .then(items => {
         res.json({
-          meals: items
+          progress: items
         })
         return items
       })
@@ -30,10 +34,10 @@ router.get('/', function(req, res, next) {
 })
 
 router.get('/:id', (req, res, next) => {
-  Meal.findById(`${req.params.id}`)
+  Progress.findById(`${req.params.id}`)
     .then(item => {
       res.status(200).json({
-        meals: item
+        progress: item
       })
     })
     .catch(err => {
@@ -43,7 +47,7 @@ router.get('/:id', (req, res, next) => {
 })
 
 router.post('/', (req, res) => {
-  const requiredFields = ['title']
+  const requiredFields = ['weight']
 
   for (let i = 0; i < requiredFields.length; i++) {
     const field = requiredFields[i]
@@ -55,16 +59,23 @@ router.post('/', (req, res) => {
     }
   }
 
-  Meal.create({
-    title: req.body.title,
-    calories: req.body.calories,
-    date: req.body.date,
-    imageURL: req.body.imageURL
+  Progress.find({
+    date: {
+      $gte: today,
+      $lt: tomorrow
+    }
+  }).then(items => {
+    const message = `Weight already exists for the day`
+    if (items.length > 0) return res.status(400).send(message)
   })
-    .then(meal => {
-      console.log(meal)
+
+  Progress.create({
+    weight: req.body.weight,
+    date: req.body.date
+  })
+    .then(item => {
       res.status(201)
-      res.json(meal)
+      res.json(item)
     })
     .catch(err => {
       console.error(err)
@@ -73,7 +84,7 @@ router.post('/', (req, res) => {
 })
 
 router.delete('/:id', (req, res, next) => {
-  Meal.findByIdAndRemove(req.params.id)
+  Progress.findByIdAndRemove(req.params.id)
     .then(() => {
       res.status(204).json({ message: 'success' })
     })
@@ -92,7 +103,7 @@ router.put('/:id', (req, res, next) => {
   }
 
   const updated = {}
-  const updateableFields = ['title', 'calories', 'date', 'imageURL']
+  const updateableFields = ['weight', 'date']
 
   updateableFields.forEach(field => {
     if (field in req.body) {
@@ -100,7 +111,7 @@ router.put('/:id', (req, res, next) => {
     }
   })
 
-  Meal.findByIdAndUpdate(req.params.id, { $set: updated }, { new: true })
+  Progress.findByIdAndUpdate(req.params.id, { $set: updated }, { new: true })
     .then(updatedItem => res.status(204).end())
     .catch(err => res.status(500).json({ message }))
 })

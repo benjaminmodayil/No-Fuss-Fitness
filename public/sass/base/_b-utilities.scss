@@ -54,6 +54,10 @@ $wideWidth: 1000;
     padding-right: 0;
   }
 
+  &.wrapper-1030 {
+    max-width: 1030px;
+  }
+
   &.wrapper-1200 {
     max-width: 1200px;
   }
@@ -153,4 +157,16 @@ $spacings: 'auto', '8', '14', '16', '24', '28', '32', '48', '64', '80', '96';
 
 .float-left {
   float: left;
+}
+
+.b-shadow {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.flex {
+  display: flex;
+}
+
+.b-r-4 {
+  border-radius: 4px;
 }

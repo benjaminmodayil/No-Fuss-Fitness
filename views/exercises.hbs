@@ -1,40 +1,51 @@
-<a href="/">Back to overview</a>
-<h1>{{title}}</h1>
+<main role="main" data-exercises>
+  <a href="/">Back to overview</a>
+  <h1>{{title}}</h1>
 
-<form method="POST" class="exercise-form">
-  <label class="block screenreader-only" for="exercise-title">Title</label>
-  <input class="block" type="text" id="exercise-title" name="exercise Entry" value="Title" placeholder="exercise name" required
-    autocomplete="off" aria-required="true">
-  <label class="block screenreader-only" for="exercise-calories">Description</label>
-  <input class="block" type="text" id="exercise-calories" name="exercise calories" placeholder="0">
-  <label class="block screenreader-only" for="exercise-date">Date</label>
-  <input class="block" type="date" id="exercise-date" name="Date Entry">
-  <button>exercise +</button>
-</form>
-{{date}}
+  <form method="POST" class="form">
+    <label class="block screenreader-only" for="title">Title</label>
+    <input class="block" type="text" id="title" name="title" value="Title" placeholder="exercise name" required autocomplete="off"
+      aria-required="true">
+    <label class="block screenreader-only" for="reps">Reps</label>
+    <input class="block" type="text" id="reps" name="reps" placeholder="reps #" autocomplete="off">
+    <label class="block screenreader-only" for="type">Type</label>
+    <input class="block" type="text" id="type" name="type" placeholder="type" autocomplete="off">
+    <label class="block screenreader-only" for="sets">Sets</label>
+    <input class="block" type="text" id="sets" name="sets" placeholder="sets #" autocomplete="off" aria-required="true">
 
-<h1>{{h.siteName}}</h1>
-<main role="main">
-  {{#each weekDays}}
+    <label class="block screenreader-only" for="distance">Distance</label>
+    <input class="block" type="text" id="distance" name="distance" placeholder="distance # in miles" autocomplete="off" aria-required="true"> {{!--
+    <label class="block screenreader-only" for="time">Time</label>
+    <input class="block" type="text" id="time" name="time" placeholder="time" autocomplete="off" aria-required="true"> --}}
+
+    <label class="block screenreader-only" for="calories">Description</label>
+    <input class="block" type="text" id="calories" name="calories" placeholder="0">
+    <label class="block screenreader-only" for="date">Date</label>
+    <input class="block" type="date" id="date" name="date">
+    <button>exercise +</button>
+  </form>
+  {{date}} {{#each weekDays}}
   <header data-date="{{dateRender name}}">
     <h2>{{name}}</h2>
     <button class="modal-launch">+</button>
   </header>
   <ul>
     {{#each exercises}}
-    <article data-id={{id}}>
-      <details>
-        <summary>{{title}}</summary>
-        <div>
-          {{!--
-          <img src="http://via.placeholder.com/350x150" alt=""> --}} {{!--
-          <span>{{time}}</span> --}}
-          <span>{{calories}} cals</span>
-          <button class="exercise-edit">edit</button>
-          <button class="exercise-delete">delete</button>
-        </div>
-      </details>
-    </article>
+    <li data-id={{id}}>
+      <article>
+        <details>
+          <summary>{{title}}</summary>
+          <div>
+            {{!--
+            <img src="http://via.placeholder.com/350x150" alt=""> --}} {{!--
+            <span>{{date}}</span> --}}
+            <span>{{calories}} cals</span>
+            <button class="item-edit">edit</button>
+            <button class="item-delete">delete</button>
+          </div>
+        </details>
+      </article>
+    </li>
     {{/each}}
   </ul>
   {{/each}}
