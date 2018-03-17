@@ -1,0 +1,32 @@
+.global-header {
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.global-nav {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 2px 0px rgba(0, 0, 0, 0.24);
+  display: flex;
+  flex-direction: column;
+}
+
+a[href='#hide-menu'] {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  flex: 0 0 120px;
+}
+
+.nav-main-container {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 600px) {
+  .nav-main-container {
+    flex-direction: row;
+    min-height: calc(100vh - 50px);
+  }
+}

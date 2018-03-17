@@ -1,4 +1,6 @@
-import '../sass/style.scss'
+// import '../sass/style.scss'
+import styles from '../stylesheets/style.css'
+
 import { $, $$ } from './modules/bling'
 // import meal from './modules/meal'
 import { mealModalTemplate, itemTemplate } from './modules/templating'

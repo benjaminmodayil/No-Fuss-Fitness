@@ -34,13 +34,8 @@ app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'hbs')
 hbs.localsAsTemplateData(app)
 
-hbs.registerHelper('dateRender', function(day) {
-  return new hbs.handlebars.SafeString(
-    moment()
-      .day(`${day}`)
-      .format('YYYY-MM-DD')
-  )
-})
+hbs.registerHelper('dateRender', helpers.dateRender)
+hbs.registerHelper('formRender', helpers.formRender)
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

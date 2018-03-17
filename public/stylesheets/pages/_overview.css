@@ -1,0 +1,84 @@
+.overview {
+  flex: 1 1 100%;
+}
+
+.quick-stats {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.stats {
+  .h2 {
+    margin-top: 0;
+  }
+
+  width: calc(33.333% - 20px);
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.stats__weight__data,
+.stats__bmi__data {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.stats__weight__data__comparison,
+.stats__bmi__data__comparison {
+  position: relative;
+  top: -5px;
+}
+
+/* second row */
+
+.form-and-graph {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.daily-log {
+  padding: 40px;
+  width: calc(33.333% - 20px);
+
+  .h2 {
+    margin-top: 0;
+  }
+
+  input {
+    height: 33px;
+  }
+
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+.graph {
+  position: relative;
+  width: calc(66.667% - 20px);
+}
+
+.daily-log__form-button {
+  border: 2px solid transparent;
+  border-radius: 4px;
+}
+
+.log__buttons {
+  border-radius: 40px;
+  transition: all 0.15s ease;
+}
+
+.comparison__number {
+  margin-top: 0;
+}

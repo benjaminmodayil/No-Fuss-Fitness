@@ -1,59 +1,59 @@
-<main class="overview wrapper wrapper-1030 m-center" role="main" data-module="ChartDashboard">
+<main class="overview wrapper max-w-xl mx-auto" role="main" data-module="ChartDashboard">
   <div class="quick-stats">
-    <article class="stats stats__goal bg-white b-shadow p-y-16 p-x-24 b-r-4">
-      <h2 class="h2 f-s-18 text-black font-normal">Goal:</h2>
+    <article class="stats stats__goal bg-white b-shadow py-4 px-8 b-r-4">
+      <h2 class="h2 text-lg text-black font-normal mb-4">Goal:</h2>
       <p class="stats__goal__data text-blue font-bold f-s-18">To lose weight and be happy.</p>
     </article>
-    <article class="stats stats__weight bg-white b-shadow p-y-16 p-x-24 b-r-4">
-      <h2 class="h2 f-s-18 text-black font-normal">Weight:</h2>
+    <article class="stats stats__weight bg-white b-shadow py-4 px-8 b-r-4">
+      <h2 class="h2 text-lg text-black font-normal mb-4">Weight:</h2>
       <div class="stats__weight__data">
         <p class="stats__weight__data__inner">
-          <span class="data__number text-blue font-bold f-s-36">183</span>
+          <span class="data__number text-blue font-bold text-4xl">183</span>
           <span class="data__metric text-blue font-bold f-s-28">lbs</span>
         </p>
         <div class="stats__weight__data__comparison">
           <p class="comparison__number m-bottom-8">
-            <span class="text-green font-bold f-s-28">-3</span>
-            <span class="f-s-18">lbs</span>
+            <span class="text-green font-bold text-3xl">-3</span>
+            <span class="text-base">lbs</span>
           </p>
-          <span class="comparison__reference f-s-14 italic">since last week</span>
+          <span class="comparison__reference text-sm italic">since last week</span>
         </div>
       </div>
     </article>
-    <article class="stats stats__bmi bg-white b-shadow p-y-16 p-x-24 b-r-4">
-      <h2 class="h2 f-s-18 text-black font-normal">BMI:</h2>
+    <article class="stats stats__bmi bg-white b-shadow py-4 px-8 b-r-4">
+      <h2 class="h2 text-lg text-black font-normal mb-4">BMI:</h2>
       <div class="stats__bmi__data">
         <p class="stats__bmi__data__result">
-          <span class="result__number text-blue font-bold f-s-36">28.4</span>
+          <span class="result__number text-blue font-bold text-4xl">28.4</span>
         </p>
         <div class="stats__bmi__data__comparison">
           <p class="comparison__number m-bottom-8">
-            <span class="text-red font-bold f-s-28">-3</span>
-            <span class="f-s-18">units</span>
+            <span class="text-red font-bold text-3xl">-3</span>
+            <span class="text-base">units</span>
           </p>
-          <span class="comparison__reference f-s-14 italic">since last week</span>
+          <span class="comparison__reference text-sm italic">since last week</span>
         </div>
       </div>
     </article>
   </div>
 
-  <div class="form-and-graph flex m-top-80">
+  <div class="form-and-graph flex mt-16 justify-between">
     <div class="daily-log bg-white b-shadow b-r-4" data-module="DailyLog">
-      <h2 class="h2 italic m-bottom-24 font-normal f-s-18">Daily Log</h2>
+      <h2 class="h2 italic mb-8 font-normal text-lg">Daily Log</h2>
 
-      <form method="POST" class="m-bottom-64">
-        <label class="block font-bold f-s-18 text-blue m-bottom-14" for="weight">Weight:</label>
-        <input type="text" id="weight" name="weight">
-        <button class="daily-log__form-button bg-blue" type="submit">➡️</button>
+      <form method="POST" class="mb-16">
+        <label class="block font-bold text-base text-blue mb-2 rounded" for="weight">Weight:</label>
+        <input type="text" id="weight" class="border border-blue border-solid b-r-4" name="weight">
+        <button class="daily-log__form-button bg-blue b-r-4 p-1" type="submit">➡️</button>
       </form>
 
       <div class="daily-log__buttons">
-        <button class="log__buttons m-center text-blue p-14 block m-bottom-24">new exercise</button>
-        <button class="log__buttons m-center text-blue p-14 block">new meal</button>
+        <button class="log__buttons mx-auto text-blue p-4 border-2 border-blue w-48 block hover:bg-blue hover:text-white mb-4">new exercise</button>
+        <button class="log__buttons mx-auto text-blue p-4 border-2 border-blue w-48 block hover:bg-blue hover:text-white">new meal</button>
       </div>
     </div>
 
-    <div class="graph bg-white b-shadow p-16 b-r-4">
+    <div class="graph bg-white b-shadow p-8 rounded justify-center">
       <canvas id="myChart"></canvas>
     </div>
   </div>

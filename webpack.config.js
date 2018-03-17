@@ -26,7 +26,14 @@ const javascript = {
 /*
   This is our postCSS loader which gets fed into the next loader. I'm setting it up in it's own variable because its a didgeridog
 */
-
+//
+// {
+// test: /\.css$/,
+// use: ExtractTextPlugin.extract({
+//   fallback: 'style-loader',
+//   use: [{ loader: 'css-loader', options: { importLoaders: 1 } }, 'postcss-loader']
+// })
+// }
 const postcss = {
   loader: 'postcss-loader',
   options: {
@@ -38,15 +45,14 @@ const postcss = {
 
 // this is our sass/css loader. It handles files that are require('something.scss')
 const styles = {
-  test: /\.(scss)$/,
+  test: /\.(css)$/,
   // here we pass the options as query params b/c it's short.
   // remember above we used an object for each loader instead of just a string?
   // We don't just pass an array of loaders, we run them through the extract plugin so they can be outputted to their own .css file
-  use: ExtractTextPlugin.extract([
-    'css-loader?sourceMap',
-    postcss,
-    'sass-loader?sourceMap'
-  ])
+  use: ExtractTextPlugin.extract({
+    fallback: 'style-loader',
+    use: [{ loader: 'css-loader', options: { importLoaders: 1 } }, 'postcss-loader']
+  })
 }
 
 // We can also use plugins - this one will compress the crap out of our JS

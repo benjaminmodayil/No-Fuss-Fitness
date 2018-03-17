@@ -1,0 +1,15 @@
+.desktop-only {
+  display: none !important;
+}
+
+.mobile-only {
+  display: none !important;
+}
+
+.b-shadow {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.b-r-4 {
+  border-radius: 4px;
+}
