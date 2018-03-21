@@ -1,5 +1,6 @@
 var express = require('express')
 var router = express.Router()
+var moment = require('moment')
 
 const { Meal } = require('../../models')
 
@@ -42,11 +43,11 @@ router.get('/:id', (req, res, next) => {
     })
 })
 
-router.post('/', (req, res) => {
-  const requiredFields = ['title']
+router.post('/', async (req, res) => {
+  const reqFields = ['title', 'calories']
 
-  for (let i = 0; i < requiredFields.length; i++) {
-    const field = requiredFields[i]
+  for (let i = 0; i < reqFields.length; i++) {
+    const field = reqFields[i]
 
     if (!(field in req.body)) {
       const message = `Missing required '${field}' in req.body`
@@ -55,21 +56,18 @@ router.post('/', (req, res) => {
     }
   }
 
-  Meal.create({
-    title: req.body.title,
-    calories: req.body.calories,
-    date: req.body.date,
-    imageURL: req.body.imageURL
-  })
-    .then(meal => {
-      console.log(meal)
-      res.status(201)
-      res.json(meal)
+  try {
+    let item = await Meal.create({
+      title: req.body.title,
+      calories: req.body.calories,
+      date: moment(req.body.date).format('YYYY-MM-DD'),
+      imageURL: req.body.imageURL
     })
-    .catch(err => {
-      console.error(err)
-      res.status(500).json({ error: 'Something went wrong.' })
-    })
+    res.status(201).json(item)
+  } catch (err) {
+    console.error(err)
+    res.status(500).json({ error: 'Something went wrong.' })
+  }
 })
 
 router.delete('/:id', (req, res, next) => {

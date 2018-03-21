@@ -1,4 +1,5 @@
 import { $, $$ } from './bling.js'
+
 import {
   fetchItem,
   addThis,
@@ -7,7 +8,8 @@ import {
   modalOpen,
   modalClose,
   getDay,
-  deleteThis
+  deleteThis,
+  checkTodaysCalories
 } from '../helper'
 
 export default class Meals {
@@ -28,9 +30,16 @@ export default class Meals {
   }
 
   bindEvents() {
-    this.form.on('submit', addThis)
+    // this.form.on('submit', addThis)
     this.modalBtns.forEach(i => i.on('click', modalOpen))
-    this.mealDeleteBtns.map(i => i.on('click', e => deleteThis(e, `/meals/api/`)))
+    this.mealDeleteBtns.map(i => i.on('click', this.deleteAndUpdateCalories.bind(this)))
     this.exerciseDeleteBtns.map(i => i.on('click', e => deleteThis(e, `/exercises/api/`)))
+  }
+
+  deleteAndUpdateCalories(e) {
+    deleteThis(e, `/meals/api/`)
+    setTimeout(() => {
+      checkTodaysCalories()
+    }, 700)
   }
 }

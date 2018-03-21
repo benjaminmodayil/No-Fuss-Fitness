@@ -10,9 +10,14 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 2px 0px rgba(0, 0, 0, 0.24);
   display: flex;
   flex-direction: column;
+  transition: all 0.3s ease;
+
+  span {
+    transition: opacity 0.1s;
+  }
 }
 
-a[href='#hide-menu'] {
+#hide-menu {
   align-items: center;
   display: flex;
   justify-content: space-between;
@@ -22,6 +27,7 @@ a[href='#hide-menu'] {
 .nav-main-container {
   display: flex;
   flex-direction: column;
+  transition: all 0.3s ease;
 }
 
 @media screen and (min-width: 600px) {
@@ -29,4 +35,15 @@ a[href='#hide-menu'] {
     flex-direction: row;
     min-height: calc(100vh - 50px);
   }
+}
+
+main {
+  transition: all 0.3s ease;
+}
+
+.js-menu-toggle {
+  margin: 0 !important;
+  opacity: 0;
+  visibility: hidden;
+  width: 0px;
 }

@@ -1,8 +1,7 @@
-const { getSunday, formatToDate, getDay } = require('../helpers.js')
+const { getDay, dateRender, today } = require('../helpers.js')
 const { Meal } = require('../models')
 
 var moment = require('moment')
-moment().format()
 
 exports.mealsPage = (req, res, next) => {
   let sun, mon, tues, wed, thurs, fri, sat
@@ -37,9 +36,6 @@ exports.mealsPage = (req, res, next) => {
 
   let weekDays = [sun, mon, tues, wed, thurs, fri, sat]
 
-  let wkStart = getSunday(new Date())
-  let formattedDate = formatToDate(wkStart)
-
   if (req.query.from) {
     Meal.find({
       date: {
@@ -50,7 +46,9 @@ exports.mealsPage = (req, res, next) => {
       res.render('meals', {
         title: 'Meal Log',
         weekDays: items,
-        date: `${req.query.from}`
+        today: today(),
+        date: `${req.query.from}`,
+        dateRender: dateRender
       })
     })
   } else {
@@ -68,14 +66,15 @@ exports.mealsPage = (req, res, next) => {
             }
           })
         })
-
         return weekDays
       })
       .then(items => {
         res.render('meals', {
           title: 'Meal Log',
           weekDays: items,
-          date: getDay('Sunday')
+          date: getDay('Sunday'),
+          today: today(),
+          dateRender: dateRender
         })
         return items
       })

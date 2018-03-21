@@ -1,0 +1,10 @@
+.item:hover {
+  .item__functions {
+    opacity: 1;
+  }
+}
+
+.item__functions {
+  opacity: 0;
+  transition: all 0.1s;
+}

@@ -1,3 +1,4 @@
+import moment from 'moment'
 import { $, $$ } from './modules/bling.js'
 import { mealModalTemplate, itemTemplate } from './modules/templating'
 
@@ -38,7 +39,13 @@ let addThis = (e, pathname = window.location.pathname) => {
   let inputs = form.querySelectorAll('[name]')
 
   inputs.forEach(i => {
-    dbData[i.name] = i.value
+    console.log(i.name)
+    if (i.name === 'date') {
+      dbData[i.name] = moment(i.value).format('YYYY-MM-DD')
+      console.log(dbData[i.name])
+    } else {
+      dbData[i.name] = i.value
+    }
   })
 
   fetchItem(`${pathname}/api`, dbData, 'POST')
@@ -60,11 +67,28 @@ let fetchLatest = (pathname, data) => {
       let items = textJSON[[Object.keys(textJSON)[0]]]
       let { date } = items[0]
       date = moment.utc(date).format('YYYY-MM-DD')
-
+      let type = $(`[data-date="${date}"]`).closest('.today-wrapper')
+        ? 'featured'
+        : 'normal'
+      console.log(type)
       if ($(`[data-date="${date}"]`))
-        $(`[data-date="${date}"]`).nextElementSibling.append(itemTemplate(items[0]))
+        $(`[data-date="${date}"]`).nextElementSibling.append(itemTemplate(items[0], type))
     })
+
+    checkTodaysCalories()
   })
+}
+
+let checkTodaysCalories = () => {
+  let module = $('[data-module="DayCalories"]')
+  let amt = module.querySelectorAll('li')
+  let count = 0
+  let arr = amt.forEach(item => {
+    let el = item.querySelector('.data__number')
+    count += parseInt(el.textContent)
+  })
+
+  $('.today__total-calories__count').textContent = `${count}`
 }
 
 let clearForm = node => {
@@ -81,7 +105,7 @@ let modalOpen = e => {
   bodyEl.append(tempDOM)
 
   let dateValue = e.currentTarget.closest(`[data-date]`).dataset.date
-  let dateDayName = e.currentTarget.parentNode.querySelector(`h2`).textContent
+  let dateDayName = e.currentTarget.parentNode.querySelector(`.js-day`).textContent
 
   let modalDay = tempDOM.querySelector('.modal-day')
   modalDay.textContent = dateDayName
@@ -92,7 +116,7 @@ let modalOpen = e => {
   modalCloseBtn.on('click', modalClose)
 
   let modalSubmit = $('.modal-submit').closest('.form')
-  modalSubmit.on('submit', addThis)
+  modalSubmit.on('submit', addThis.bind(this))
 }
 
 let modalClose = e => {
@@ -122,5 +146,6 @@ module.exports = {
   modalOpen,
   modalClose,
   getDay,
-  deleteThis
+  deleteThis,
+  checkTodaysCalories
 }

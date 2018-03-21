@@ -1,0 +1,7 @@
+mixin navPrimary(nav = {})
+  header.global-header.bg-white.px-2.py-3(data-module="Nav")
+    button.no-underline#hide-menu
+      img(src=h.icon(`menu`) alt="")
+      span minimize menu
+    a.font-serif.text-blue.no-underline.font-bold.f-s-18(href="/overview") #{h.siteName}
+    a.global-header__logout.text-sm.btn.bg-green.px-3.py-2.font-sans.font-bold.text-white.no-underline.rounded(href="/logout") Log out

@@ -7,6 +7,7 @@ var logger = require('morgan')
 var cookieParser = require('cookie-parser')
 var bodyParser = require('body-parser')
 var hbs = require('hbs')
+var pug = require('pug')
 
 var index = require('./routes/index')
 var overview = require('./routes/overview')
@@ -31,14 +32,19 @@ var app = express()
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
-app.set('view engine', 'hbs')
-hbs.localsAsTemplateData(app)
+app.set('view engine', 'pug')
 
-hbs.registerHelper('dateRender', helpers.dateRender)
-hbs.registerHelper('formRender', helpers.formRender)
+app.use((req, res, next) => {
+  res.locals.h = helpers
+  res.locals.currentPath = req.path
+  next()
+})
+
+// hbs.registerHelper('dateRender', helpers.dateRender)
+// hbs.registerHelper('formRender', helpers.formRender)
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 app.use((req, res, next) => {
   res.locals.h = helpers
   next()

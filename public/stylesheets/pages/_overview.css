@@ -3,18 +3,16 @@
 }
 
 .quick-stats {
-  display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
 .stats {
+  width: 100%;
+
   .h2 {
     margin-top: 0;
   }
-
-  width: calc(33.333% - 20px);
 }
 
 .stats {
@@ -39,15 +37,9 @@
 
 /* second row */
 
-.form-and-graph {
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
 .daily-log {
   padding: 40px;
-  width: calc(33.333% - 20px);
+  min-width: 300px;
 
   .h2 {
     margin-top: 0;
@@ -65,8 +57,8 @@
 }
 
 .graph {
+  min-height: 380px;
   position: relative;
-  width: calc(66.667% - 20px);
 }
 
 .daily-log__form-button {

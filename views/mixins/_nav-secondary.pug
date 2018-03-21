@@ -1,0 +1,12 @@
+mixin navSecondary(nav = {})
+  nav.global-nav.bg-blue.px-4.pt-8.md-pt-16
+    a.text-white.flex.items-center.no-underline.mb-8(href="/meals")
+      img(src=h.icon('apple') alt="")
+      span.ml-4 Log Meals
+    a.text-white.flex.items-center.no-underline.mb-8(href="/exercises")
+      img(src=h.icon('exercise') alt="")
+      span.ml-4 Add Exercises
+    a.text-white.flex.items-center.no-underline.mb-8(href="/overview")
+      img(src=h.icon('brain') alt="")
+      span.ml-4 Overview
+

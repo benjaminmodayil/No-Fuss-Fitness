@@ -1,5 +1,6 @@
-var moment = require('moment')
-var hbs = require('hbs')
+const fs = require('fs')
+
+const moment = require('moment')
 
 exports.siteName = `No Fuss Fitness`
 
@@ -9,10 +10,16 @@ exports.getDay = (day = 'Sunday') => {
     .format('YYYY-MM-DD')
 }
 
-exports.dateRender = function(day) {
-  return new hbs.handlebars.SafeString(
-    moment()
-      .day(`${day}`)
-      .format('YYYY-MM-DD')
-  )
+exports.today = () => {
+  return moment().format('YYYY-MM-DD')
 }
+
+exports.dateRender = function(day) {
+  return moment()
+    .day(`${day}`)
+    .format('YYYY-MM-DD')
+}
+
+exports.dump = obj => JSON.stringify(obj, null, 2)
+exports.icon = name => `/images/icons/icon-${name}.svg`
+exports.siteName = `No Fuss Fitness`

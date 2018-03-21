@@ -1,0 +1,49 @@
+extends layout
+
+block content
+  main.overview.wrapper.max-w-xl.px-4.mx-auto(role="main" data-module="ChartDashboard")
+    .quick-stats.flex.flex-col.md-flex-row.-mx-2
+
+      article.md-w-1-2.lg-w-1-3.stats.stats__goal.px-2.b-r-4.mb-2.lg-mb-0
+        .stats__inner.bg-white.b-shadow.h-full.p-4.rounded
+          h2.h2.text-lg.text-black.font-normal.mb-4 Goal:
+          p.stats__goal__data.text-blue.font-bold.f-s-18 To lose weight and be happy.
+
+      article.md-w-1-2.lg-w-1-3.stats.stats__weight.px-2.b-r-4.mb-2.lg-mb-0
+        .stats__inner.bg-white.b-shadow.h-full.p-4.rounded
+          h2.h2.text-lg.text-black.font-normal.mb-4 Weight:
+          .stats__weight__data
+            p.stats__weight__data__inner
+              span.data__number.text-blue.font-bold.text-4xl.mr-3 183
+              span.data__metric.text-blue.font-bold.f-s-28 lbs
+            .stats__weight__data__comparison
+              p.comparison__number.m-bottom-8
+                span.text-green.font-bold.text-3xl.mr-3 -3
+                span.text-base lbs
+              span.comparison__reference.text-sm.italic since last week
+
+      article.md-w-1-2.lg-w-1-3.stats.stats__bmi.px-2.b-r-4.mb-2.lg-mb-0
+        .stats__inner.bg-white.b-shadow.h-full.p-4.rounded
+          h2.h2.text-lg.text-black.font-normal.mb-4 BMI:
+          .stats__bmi__data
+            p.stats__bmi__data__result
+              span.result__number.text-blue.font-bold.text-4xl.mr-3 28.4
+            .stats__bmi__data__comparison
+              p.comparison__number.m-bottom-8
+                span.text-red.font-bold.text-3xl.mr-3 -3
+                span.text-base units
+              span.comparison__reference.text-sm.italic since last week
+
+    .form-and-graph.flex.flex-col.lg-flex-row.mt-16.sm-items-center.lg-justify-between
+      .daily-log.bg-white.b-shadow.b-r-4(data-module="DailyLog")
+        h2.h2.italic.mb-8.font-normal.text-lg Daily Log
+        form.mb-16(method="POST")
+          label.block.font-bold.text-base.text-blue.mb-2.rounded(for="weight") Weight:
+          input#weight.border.border-blue.border-solid.b-r-4(type="text" name="weight")
+          button.daily-log__form-button.bg-blue.b-r-4.p-1(type="submit") ➡️
+        .daily-log__buttons
+          button.log__buttons.mx-auto.text-blue.p-4.border-2.border-blue.w-48.block.mb-4.hover-bg-blue.hover-text-white new exercise
+          button.log__buttons.mx-auto.text-blue.p-4.border-2.border-blue.w-48.block.hover-bg-blue.hover-text-white new meal
+
+      .graph.bg-white.b-shadow.p-8.rounded.justify-center.sm-w-full
+        canvas#myChart

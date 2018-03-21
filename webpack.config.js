@@ -6,6 +6,7 @@ const path = require('path')
 const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const autoprefixer = require('autoprefixer')
+
 /*
   webpack sees every file as a module.
   How to handle those files is up to loaders.
@@ -62,6 +63,7 @@ const uglify = new webpack.optimize.UglifyJsPlugin({
 })
 
 // OK - now it's time to put it all together
+
 const config = {
   entry: {
     // we only have 1 entry, but I've set it up for multiple in the future
