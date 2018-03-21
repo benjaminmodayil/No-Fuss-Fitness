@@ -14,6 +14,14 @@ exports.today = () => {
   return moment().format('YYYY-MM-DD')
 }
 
+exports.todayItems = arr => {
+  return arr.filter(item => {
+    return moment.utc(item.date).format('YYYY-MM-DD') === moment().format('YYYY-MM-DD')
+  })
+}
+
+exports.dayName = day => moment(day).format('dddd')
+
 exports.dateRender = function(day) {
   return moment()
     .day(`${day}`)

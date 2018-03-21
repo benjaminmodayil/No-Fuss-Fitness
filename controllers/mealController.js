@@ -4,37 +4,37 @@ const { Meal } = require('../models')
 var moment = require('moment')
 
 exports.mealsPage = (req, res, next) => {
-  let sun, mon, tues, wed, thurs, fri, sat
-  sun = {
-    name: 'Sunday',
-    meals: []
-  }
-  mon = {
-    name: 'Monday',
-    meals: []
-  }
-  tues = {
-    name: 'Tuesday',
-    meals: []
-  }
-  wed = {
-    name: 'Wednesday',
-    meals: []
-  }
-  thurs = {
-    name: 'Thursday',
-    meals: []
-  }
-  fri = {
-    name: 'Friday',
-    meals: []
-  }
-  sat = {
-    name: 'Saturday',
-    meals: []
-  }
+  // let sun, mon, tues, wed, thurs, fri, sat
+  // sun = {
+  //   name: 'Sunday',
+  //   meals: []
+  // }
+  // mon = {
+  //   name: 'Monday',
+  //   meals: []
+  // }
+  // tues = {
+  //   name: 'Tuesday',
+  //   meals: []
+  // }
+  // wed = {
+  //   name: 'Wednesday',
+  //   meals: []
+  // }
+  // thurs = {
+  //   name: 'Thursday',
+  //   meals: []
+  // }
+  // fri = {
+  //   name: 'Friday',
+  //   meals: []
+  // }
+  // sat = {
+  //   name: 'Saturday',
+  //   meals: []
+  // }
 
-  let weekDays = [sun, mon, tues, wed, thurs, fri, sat]
+  // let weekDays = [sun, mon, tues, wed, thurs, fri, sat]
 
   if (req.query.from) {
     Meal.find({
@@ -58,21 +58,21 @@ exports.mealsPage = (req, res, next) => {
       }
     })
       .then(items => items.map(item => item.serialize()))
-      .then(items => {
-        items.map(item => {
-          weekDays.map(day => {
-            if (item.dayName === day.name) {
-              day.meals.push(item)
-            }
-          })
-        })
-        return weekDays
-      })
+      // .then(items => {
+      //   items.map(item => {
+      //     weekDays.map(day => {
+      //       if (item.dayName === day.name) {
+      //         day.meals.push(item)
+      //       }
+      //     })
+      //   })
+      //   return weekDays
+      // })
       .then(items => {
         res.render('meals', {
           title: 'Meal Log',
-          weekDays: items,
-          date: getDay('Sunday'),
+          meals: items,
+          bgnWeek: getDay('Sunday'),
           today: today(),
           dateRender: dateRender
         })
