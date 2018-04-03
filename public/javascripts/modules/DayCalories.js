@@ -3,23 +3,23 @@ import { checkTodaysCalories } from '../helper'
 export default class DayCalories {
   constructor(el) {
     this.el = el
-    this.setupDOM()
-    this.bindEvents()
+    // this.setupDOM()
+    // this.bindEvents()
     checkTodaysCalories()
   }
 
-  setupDOM() {
-    this.calories = this.el.querySelector('.today__total-calories__count')
-  }
+  // setupDOM() {
+  //   this.calories = this.el.querySelector('.today__total-calories__count')
+  // }
 
-  bindEvents() {
-    this.calories.addEventListener('submit', this.doThis.bind(this))
-  }
+  // bindEvents() {
+  //   this.calories.addEventListener('submit', this.doThis.bind(this))
+  // }
 
-  doThis(e) {
-    e.preventDefault()
-    addThis(e, '/progress')
-  }
+  // doThis(e) {
+  //   e.preventDefault()
+  //   addThis(e, '/progress')
+  // }
 }
 
 // var in_dom = document.body.contains(element);

@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  main.flex-grow
+    .wrapper.px-4.container.max-w-2xl.mx-auto
+      h1 #{title}
+      form.form(action=`/meals/edit/${id}` method="POST")
+        label.block.text-grey-darker.text-sm.font-bold.mb-2(for="title") Title
+        input#title.block.shadow.appearance-none.border.rounded.w-full.py-2.px-3.text-grey-darker.mx-auto.mb-4(type="text" name="title" value="Title" placeholder="exercise name" required="" autocomplete="off" aria-required="true")
+        .flex.my-8
+          .w-1-2.flex.justify-center
+            input#type-1.mr-2(type="radio" name="type" value="reps")
+            label(for="type-1") Reps
+          .w-1-2.flex.justify-center
+            input#type-2.mr-2(type="radio" name="type" value="run")
+            label(for="type-2") Run
+        .screenreader-only.modal--rep
+          label.block.text-grey-darker.text-sm.font-bold.mb-2(for="reps") Reps
+          input#reps.block.shadow.appearance-none.border.rounded.w-full.py-2.px-3.text-grey-darker.mx-auto.mb-4(type="text" name="reps" placeholder="reps #" autocomplete="off")
+          label.block.text-grey-darker.text-sm.font-bold.mb-2(for="sets") Sets
+          input#sets.block.shadow.appearance-none.border.rounded.w-full.py-2.px-3.text-grey-darker.mx-auto.mb-4(type="text" name="sets" placeholder="sets #" autocomplete="off" aria-required="true")
+        .screenreader-only.modal--run
+          label.block.text-grey-darker.text-sm.font-bold.mb-2(for="distance") Distance
+          input#distance.block.shadow.appearance-none.border.rounded.w-full.py-2.px-3.text-grey-darker.mx-auto.mb-4(type="text" name="distance" placeholder="distance # in miles" autocomplete="off" aria-required="true")
+          label.block.text-grey-darker.text-sm.font-bold.mb-2(for="time") Time
+          input#time.block.shadow.appearance-none.border.rounded.w-full.py-2.px-3.text-grey-darker.mx-auto.mb-4(type="text" name="time" placeholder="time" autocomplete="off" aria-required="true")
+          label.block.text-grey-darker.text-sm.font-bold.mb-2(for="calories") Calories
+          input#calories.block.shadow.appearance-none.border.rounded.w-full.py-2.px-3.text-grey-darker.mx-auto.mb-4(type="text" name="calories" placeholder="0")
+        label.block.text-grey-darker.text-sm.font-bold.mb-2(for="date") Date
+        input#date.block.shadow.appearance-none.border.rounded.w-full.py-2.px-3.text-grey-darker.mx-auto.mb-4(type="date" name="date")
+        button.modal-submit.bg-green.text-white.font-bold.py-2.px-4.mt-8.rounded.float-right(class="hover:bg-green-dark" type="submit") add +

@@ -12,7 +12,7 @@ import {
   checkTodaysCalories
 } from '../helper'
 
-export default class Meals {
+export default class Pages {
   constructor(el) {
     this.el = el
     this.setupDOM()
@@ -22,22 +22,16 @@ export default class Meals {
   setupDOM() {
     this.form = this.el.querySelector('.form')
     this.modalBtns = this.el.querySelectorAll('.modal-launch')
-
-    this.mealDeleteBtns = this.el.querySelectorAll('[data-module="Meals"] .item-delete')
-    this.exerciseDeleteBtns = this.el.querySelectorAll(
-      '[data-module="Exercises"] .item-delete'
-    )
+    this.deleteBtns = this.el.querySelectorAll('.item-delete')
   }
 
   bindEvents() {
-    // this.form.on('submit', addThis)
     this.modalBtns.forEach(i => i.on('click', modalOpen))
-    this.mealDeleteBtns.map(i => i.on('click', this.deleteAndUpdateCalories.bind(this)))
-    this.exerciseDeleteBtns.map(i => i.on('click', e => deleteThis(e, `/exercises/api/`)))
+    this.deleteBtns.map(i => i.on('click', this.deleteAndUpdateCalories.bind(this)))
   }
 
   deleteAndUpdateCalories(e) {
-    deleteThis(e, `/meals/api/`)
+    deleteThis(e)
     setTimeout(() => {
       checkTodaysCalories()
     }, 700)

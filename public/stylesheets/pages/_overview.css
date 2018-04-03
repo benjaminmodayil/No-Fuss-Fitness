@@ -1,32 +1,19 @@
 .overview {
-  flex: 1 1 100%;
+  flex: 1 1 80%;
 }
 
 .quick-stats {
-  flex-wrap: wrap;
   justify-content: space-between;
 }
 
 .stats {
-  width: 100%;
-
-  .h2 {
-    margin-top: 0;
-  }
-}
-
-.stats {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  @apply .flex .flex-col .justify-center;
+  @apply .px-2 .b-r-4 .mb-2;
 }
 
 .stats__weight__data,
 .stats__bmi__data {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  @apply .flex .flex-row .justify-between .flex-wrap;
 }
 
 .stats__weight__data__comparison,
@@ -38,21 +25,8 @@
 /* second row */
 
 .daily-log {
-  padding: 40px;
-  min-width: 300px;
-
-  .h2 {
-    margin-top: 0;
-  }
-
   input {
     height: 33px;
-  }
-
-  form {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
   }
 }
 
@@ -69,8 +43,4 @@
 .log__buttons {
   border-radius: 40px;
   transition: all 0.15s ease;
-}
-
-.comparison__number {
-  margin-top: 0;
 }

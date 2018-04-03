@@ -17,6 +17,7 @@ export default class Nav {
   }
 
   handleMenu(e) {
+    this.navTrigger.classList.toggle('menu-flip')
     this.targetElements.forEach(item => item.classList.toggle('js-menu-toggle'))
   }
 }

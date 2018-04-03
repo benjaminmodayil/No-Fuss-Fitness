@@ -2,7 +2,7 @@ mixin formMeal(dateValue)
   form.form(method="POST")
     label.block.screenreader-only(for="title") Title
     input#title.block(type="text" name="title" value="Title" placeholder="name" required="" autocomplete="off" aria-required="true")
-    label.block.screenreader-only(for="calories") Calories
+    label.block.screenreader-only(for="calories" autocomplete="off") Calories
     input#calories.block(type="text" name="calories" placeholder="0")
     label.block.screenreader-only(for="date" value=dateValue) Date
     input#date.block(type="date" name="date")

@@ -5,7 +5,6 @@
 const path = require('path')
 const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const autoprefixer = require('autoprefixer')
 
 /*
   webpack sees every file as a module.
@@ -36,12 +35,7 @@ const javascript = {
 // })
 // }
 const postcss = {
-  loader: 'postcss-loader',
-  options: {
-    plugins() {
-      return [autoprefixer({ browsers: 'last 3 versions' })]
-    }
-  }
+  loader: 'postcss-loader'
 }
 
 // this is our sass/css loader. It handles files that are require('something.scss')

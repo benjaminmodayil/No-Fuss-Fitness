@@ -1,0 +1,38 @@
+.landing__preamble__text {
+  max-width: 725px;
+
+  .h1 {
+    font-size: 4.5rem;
+  }
+}
+
+.landing-nav,
+.landing__preamble-links {
+  a {
+    border-radius: 20px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+}
+
+.landing-extra__items {
+  @apply .list-reset .mx-auto .mb-16;
+}
+
+@media screen and (min-width: 768px) {
+  .landing-body {
+    background-image: url('/images/landing/header-shape.svg');
+    background-repeat: no-repeat;
+    background-position: top right;
+  }
+
+  .flex-img {
+    @apply .absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    height: auto;
+    max-width: calc(100% - 20px);
+    max-height: 100%;
+  }
+}

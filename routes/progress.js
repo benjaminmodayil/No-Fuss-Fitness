@@ -1,13 +1,20 @@
 var express = require('express')
 var router = express.Router()
 var moment = require('moment')
+const mongoose = require('mongoose')
+var today = moment.utc().startOf('day')
+var tomorrow = moment.utc(today).endOf('day')
 
-var today = moment().startOf('day')
-var tomorrow = moment(today).add(1, 'days')
+const passport = require('passport')
+const jwtAuth = passport.authenticate('jwt', {
+  session: false,
+  failureRedirect: '/login',
+  failureFlash: true
+})
 
-const { Progress } = require('../../models')
+const { Progress } = require('../models')
 
-router.get('/', function(req, res, next) {
+router.get('/', jwtAuth, function(req, res, next) {
   if (req.query.from) {
     Progress.find({
       date: {
@@ -15,7 +22,7 @@ router.get('/', function(req, res, next) {
         $lt: new Date(`${req.query.to}`)
       }
     })
-      .sort({ created: -1 })
+      .sort({ date: -1 })
       .then(items => {
         res.json({
           progress: items
@@ -23,7 +30,7 @@ router.get('/', function(req, res, next) {
       })
   } else {
     Progress.find()
-      .sort({ created: -1 })
+      .sort({ date: -1 })
       .then(items => {
         res.json({
           progress: items
@@ -46,7 +53,7 @@ router.get('/:id', (req, res, next) => {
     })
 })
 
-router.post('/', (req, res) => {
+router.post('/', jwtAuth, async (req, res) => {
   const requiredFields = ['weight']
 
   for (let i = 0; i < requiredFields.length; i++) {
@@ -59,21 +66,29 @@ router.post('/', (req, res) => {
     }
   }
 
-  Progress.find({
-    date: {
-      $gte: today,
-      $lt: tomorrow
-    }
-  }).then(items => {
-    const message = `Weight already exists for the day`
-    if (items.length > 0) return res.status(400).send(message)
-  })
-
+  // Progress.find({
+  //   date: {
+  //     $gte: today,
+  //     $lt: tomorrow
+  //   }
+  // })
+  //   .then(items => {
+  //     const message = `Weight already exists for the day`
+  //     if (items.length > 0) return res.status(500).send(message), console.log(message)
+  //   })
+  //   .catch(err => {
+  //     console.error(err)
+  //     res.status(500).json({ error: 'Something went wrong.' })
+  //   })
+  console.log(req.user)
   Progress.create({
+    _id: new mongoose.Types.ObjectId(),
     weight: req.body.weight,
-    date: req.body.date
+    date: req.body.date,
+    user: req.user.id
   })
     .then(item => {
+      console.log(item)
       res.status(201)
       res.json(item)
     })

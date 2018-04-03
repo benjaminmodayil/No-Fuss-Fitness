@@ -1,68 +1,108 @@
 'use strict'
-
 var express = require('express')
 var path = require('path')
+const session = require('express-session')
+const MongoStore = require('connect-mongo')(session)
 var favicon = require('serve-favicon')
 var logger = require('morgan')
 var cookieParser = require('cookie-parser')
 var bodyParser = require('body-parser')
-var hbs = require('hbs')
 var pug = require('pug')
+var flash = require('connect-flash')
+const passport = require('passport')
 
 var index = require('./routes/index')
 var overview = require('./routes/overview')
-var users = require('./routes/users')
 var meals = require('./routes/meals')
-var mealsAPI = require('./api/routes/meals')
 var exercises = require('./routes/exercises')
-var exercisesAPI = require('./api/routes/exercises')
-var progressAPI = require('./api/routes/progress')
+var progressAPI = require('./routes/progress')
+
+require('dotenv').config({ path: 'variables.env' })
 
 var moment = require('moment')
+const { router: usersRouter } = require('./users')
+const { router: authRouter, localStrategy, jwtStrategy } = require('./auth')
 
 var helpers = require('./helpers')
 
 const mongoose = require('mongoose')
 mongoose.Promise = global.Promise
 
-const { DATABASE_URL, PORT } = require('./config')
-const { Meal, Exercise, Progress } = require('./models')
+// const { DATABASE_URL, PORT } = require('./config')
+const { User, Meal, Exercise, Progress } = require('./models')
 
 var app = express()
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
+
 app.set('view engine', 'pug')
 
+app.use(cookieParser('secret'))
+app.use(
+  session({
+    secret: process.env.SECRET,
+    key: process.env.KEY,
+    // cookie: { maxAge: 60000 },
+    resave: false,
+    saveUninitialized: false
+  })
+)
+app.use(passport.initialize())
+app.use(passport.session())
+
+app.use(flash())
+
+// pass variables to our templates + all requests
 app.use((req, res, next) => {
   res.locals.h = helpers
+  res.locals.flashes = req.flash()
+  res.locals.user = req.user || null
   res.locals.currentPath = req.path
   next()
 })
 
-// hbs.registerHelper('dateRender', helpers.dateRender)
-// hbs.registerHelper('formRender', helpers.formRender)
-
-// uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
-app.use((req, res, next) => {
-  res.locals.h = helpers
+
+app.use(logger('dev'))
+
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*')
+  res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+  res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE')
+  if (req.method === 'OPTIONS') {
+    return res.send(204)
+  }
   next()
 })
-app.use(logger('dev'))
+
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(cookieParser())
+
+passport.use(localStrategy)
+passport.use(jwtStrategy)
+
+app.use('/api/users/', usersRouter)
+app.use('/api/auth/', authRouter)
+
+const jwtAuth = passport.authenticate('jwt', { session: false })
+
+// A protected endpoint which needs a valid JWT to access it
+
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', index)
-// app.use('/users', users)
 app.use('/overview', overview)
 app.use('/meals', meals)
-app.use('/meals/api', mealsAPI)
 app.use('/exercises', exercises)
-app.use('/exercises/api', exercisesAPI)
 app.use('/progress/api', progressAPI)
+
+app.use((req, res, next) => {
+  res.locals.h = helpers
+  res.locals.flashes = req.flash()
+  res.locals.currentPath = req.path
+  next()
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -73,7 +113,7 @@ app.use(function(req, res, next) {
 
 let server
 
-function runServer(databaseUrl, port = PORT) {
+function runServer(databaseUrl, port = process.env.PORT) {
   return new Promise((resolve, reject) => {
     mongoose.connect(databaseUrl, err => {
       if (err) {
@@ -107,7 +147,7 @@ function closeServer() {
 }
 
 if (require.main === module) {
-  runServer(DATABASE_URL).catch(err => console.error(err))
+  runServer(process.env.DATABASE_URL).catch(err => console.error(err))
 }
 
 module.exports = { runServer, app, closeServer }

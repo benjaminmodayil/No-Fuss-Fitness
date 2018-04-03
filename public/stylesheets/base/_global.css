@@ -2,11 +2,52 @@
   box-sizing: border-box;
 }
 
-main {
+body {
+  @apply .text-black;
+  font-family: 'Open Sans', sans-serif;
+  max-width: 100%;
+}
+
+.nav-main-container main {
+  @apply .bg-grey-lightest;
   padding-bottom: 10vh;
   padding-top: 10vh;
 }
 
 ul {
   padding-left: 0;
+}
+
+.inner.inner--flashes {
+  @apply .flex .justify-center .mt-8 .absolute .w-full;
+}
+
+.flash {
+  @apply .w-64 .py-4 .px-2 .mx-auto .flex .justify-between .rounded;
+
+  animation: flash 0.3s both ease;
+}
+
+.flash--error {
+  @apply .bg-red text-white;
+}
+
+.flash__text .flash__remove {
+  @apply .float-left;
+}
+
+.login-register {
+  min-height: calc(100vh - 42px);
+}
+
+@keyframes flash {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

@@ -95,13 +95,13 @@ let colors = {
   'teal-lighter': '#a0f0ed',
   'teal-lightest': '#e8fffe',
 
-  'blue-darkest': '#12283a',
-  'blue-darker': '#1c3d5a',
-  'blue-dark': '#2779bd',
-  blue: '#3490dc',
-  'blue-light': '#6cb2eb',
-  'blue-lighter': '#bcdefa',
-  'blue-lightest': '#eff8ff',
+  'blue-darkest': '#4945af',
+  'blue-darker': '#534ec8',
+  'blue-dark': '#5e58e1',
+  blue: '#6862FA',
+  'blue-light': '#7772fb',
+  'blue-lighter': '#8681fb',
+  'blue-lightest': '#9591fc',
 
   'indigo-darkest': '#191e38',
   'indigo-darker': '#2f365f',
@@ -190,6 +190,7 @@ module.exports = {
 
   fonts: {
     sans: [
+      'Open Sans',
       'system-ui',
       'BlinkMacSystemFont',
       '-apple-system',
@@ -204,6 +205,7 @@ module.exports = {
       'sans-serif'
     ],
     serif: [
+      'Merriweather',
       'Constantia',
       'Lucida Bright',
       'Lucidabright',
@@ -621,7 +623,9 @@ module.exports = {
     '4': '1rem',
     '6': '1.5rem',
     '8': '2rem',
-    '16': '4rem'
+    '16': '4rem',
+    '32': '8rem',
+    '64': '16rem'
   },
 
   /*
@@ -649,7 +653,9 @@ module.exports = {
     '4': '1rem',
     '6': '1.5rem',
     '8': '2rem',
-    '16': '4rem'
+    '16': '4rem',
+    '32': '8rem',
+    '64': '16rem'
   },
 
   /*

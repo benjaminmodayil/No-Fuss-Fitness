@@ -17,3 +17,8 @@
 .r-off {
   right: 2rem;
 }
+
+/* wrappers */
+.wrapper--1030 {
+  max-width: 1030px;
+}

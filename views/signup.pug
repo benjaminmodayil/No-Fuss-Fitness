@@ -1,0 +1,44 @@
+include ./mixins/_doc.pug
+
++doc(title)
+body.min-h-full
+  header.global-header.bg-white.px-2.py-3
+    a.mx-auto.text-center.block.font-serif.text-blue.no-underline.hover-underline.font-bold(href="/") #{h.siteName}
+  block messages
+        if locals.flashes
+          .inner.inner--flashes
+            .flash-messages
+              - const categories = Object.keys(locals.flashes)
+              each category in categories
+                each message in flashes[category]
+                  .flash(class=`flash--${category}`)
+                    p.flash__text!= message
+                    button.flash__remove(onClick="this.parentElement.remove()") &times;
+  main.login-register.w-full.flex.flex-col.justify-center.items-center.py-32.bg-blue
+    h1.h1.text-center.text-white Register
+    form(action="/api/users/" method="POST" data-module="LoginForm").bg-white.shadow-md.rounded.px-8.pt-6.pb-8.mb-4
+      .mb-4
+        label.block.text-grey-darker.text-sm.font-bold.mb-2(for='username')
+          | Username
+        input#username.shadow.appearance-none.border.rounded.w-full.py-2.px-3.text-grey-darker(type='text', placeholder='Username' name="username")
+      .mb-4
+        label.block.text-grey-darker.text-sm.font-bold.mb-2(for='firstName')
+          | First Name
+        input#firstName.shadow.appearance-none.border.rounded.w-full.py-2.px-3.text-grey-darker(type='text', placeholder='first name' name="firstName")
+      .mb-4
+        label.block.text-grey-darker.text-sm.font-bold.mb-2(for='lastName')
+          | Last Name
+        input#lastName.shadow.appearance-none.border.rounded.w-full.py-2.px-3.text-grey-darker(type='text', placeholder='last name' name="lastName")
+      .mb-6
+        label.block.text-grey-darker.text-sm.font-bold.mb-2(for='password')
+          | Password
+        input#password.shadow.appearance-none.border.border-red.rounded.w-full.py-2.px-3.text-grey-darker.mb-3(type='password', placeholder='******************' name="password")
+        p.text-red.text-xs.italic Please choose a password.
+      .flex.flex-col.items-center.justify-between
+        button.bg-blue.text-white.font-bold.py-2.px-4.rounded.mb-4(class='hover-bg-blue-dark', type='submit')
+          | Sign In
+        a.inline-block.align-baseline.font-bold.text-sm.text-blue(class='hover-text-blue-darker', href='#')
+          | Forgot Password?
+
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js")
+  script(src="/dist/App.bundle.js")

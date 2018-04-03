@@ -1,16 +1,13 @@
+include ./mixins/_doc.pug
 include ./mixins/_nav-primary.pug
 include ./mixins/_nav-secondary.pug
 
-doctype html
-html(lang="en")
-  head
-    title #{h.siteName}
-    link(rel="stylesheet" href="/dist/style.css")
-  body
-    +navPrimary
-    .nav-main-container
-      +navSecondary
-      block content
++doc
+body
+  +navPrimary
+  .nav-main-container
+    +navSecondary
+    block content
 
     script(src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js")
     script(src="/dist/App.bundle.js")

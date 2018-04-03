@@ -1,8 +1,6 @@
-// import '../sass/style.scss'
 import styles from '../stylesheets/style.css'
-
+require('./auth')
 import { $, $$ } from './modules/bling'
-// import meal from './modules/meal'
 import { mealModalTemplate, itemTemplate } from './modules/templating'
 
 const moduleElements = document.querySelectorAll('[data-module]')

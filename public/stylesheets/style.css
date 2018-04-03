@@ -1,10 +1,11 @@
-@tailwind preflight;
+@import 'tailwindcss/preflight';
 
-@tailwind components;
+@import 'tailwindcss/components';
 
-@tailwind utilities;
+@import 'tailwindcss/utilities';
 
 /* @import 'test.css'; */
+@import 'base/_typography.css';
 @import 'base/_normalize.css';
 @import 'base/_global.css';
 @import 'base/_b-utilities.css';
@@ -12,6 +13,7 @@
 @import 'components/_modal.css';
 @import 'components/_navigation.css';
 
+@import 'pages/_landing.css';
 @import 'pages/_exercise.css';
 @import 'pages/_meal.css';
 @import 'pages/_overview.css';

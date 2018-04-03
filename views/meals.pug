@@ -2,69 +2,87 @@ extends layout
 include ./mixins/_form-meal.pug
 
 block content
+  if locals.flashes
+    .inner.inner--flashes
+      .flash-messages
+        - const categories = Object.keys(locals.flashes)
+        each category in categories
+          each message in flashes[category]
+            .flash(class=`flash--${category}`)
+              p.flash__text!= message
+              button.flash__remove(onClick="this.parentElement.remove()") &times;
 
-  main(role="main" data-module="Meals").px-4.mx-auto.max-w-2xl.w-full
-    h1.screenreader-only #{title}
-    p #{bgnWeek}
+  main(role="main" data-module="Pages" data-name="meals").flex-grow
+    .wrapper.px-4.container.max-w-2xl.mx-auto
+      //- .quick-stats.flex.flex-col.md-flex-row.md--mx-4
+      h1.screenreader-only #{title}
+      h2.h2.text-center.md-text-left Week of #{h.dayMonth(bgnWeek)}
 
-    //- // all meals
-    //- // if meal.date = today -> today template (find todays date and post it below with another function)
+      .today-wrapper.flex.flex-col.bg-white.b-shadow.my-8.px-8.pt-8.pb-8.rounded.relative(data-module="DayCalories")
+        - let date = h.today()
+        - let day = h.dayName(date)
+        - let todayMeals = h.todayItems(meals)
+        - let notTodaysMeals = h.otherWeekItems(meals)
+        header(data-date=date)
+          h2.border-b.border-blue.w-32.mb-8
+            span.block.font-normal.text-black.text-2xl.mb-2 Today
+            span.block.font-bold.text-black.text-lg.pb-2.js-day #{day}
+          button.absolute.pin-r.flex.items-center.mr-8.modal-launch.pin-t.mt-8
+            span.mr-4.invisible.md-visible Add new item
+            != h.icon('add')
+        if todayMeals.length < 1
+            p.today__placeholder.text-center.italic.text-lg.text-black.mb-16 No items
+        else if todayMeals.length > 0
+          ul.flex.flex-col.md-flex-row.w-full.-mx-2.overflow-x-scroll
+            each meal in todayMeals
+              li.list-reset.px-2.text-base.mb-4.w-full.md-w-1-2.lg-w-1-3(class="item" data-id=meal.id).flex-no-grow.flex-no-shrink
+                article.relative.bg-white.b-shadow.p-4
+                  p.item__data.py-2
+                    span.data__title.block.mb-2 #{meal.title}
+                    span.data__calories.block.text-xl.text-red.font-bold
+                      span.data__number #{meal.calories}
+                      span.text-black.text-base.font-normal  cals
+                  .item__functions.flex.flex-col.h-full.absolute.pin-r.pin-t.w-4
+                    a(href=`/meals/edit/${meal.id}`).item-edit.pin-t.pin-r.mt-1.absolute
+                      span.w-4
+                        != h.icon('edit')
+                    a(href=`/meals/api/${meal.id}`).item-delete.pin-b.pin-r.mb-1.absolute
+                      span.w-4
+                        != h.icon('close')
+          p.today__total-calories.text-right
+            span.today__total-calories__count.block.text-3xl.text-red.font-bold 1405
+            span.text-lg.text-black calories consumed
 
-    .today-wrapper.flex.flex-col.bg-white.b-shadow.my-8.px-8.pt-8.pb-8.rounded.relative(data-module="DayCalories")
-     - let date = h.today()
-     - let day = h.dayName(date)
-     - let todayMeals = h.todayItems(meals)
-      header(data-date=date)
-        h2.border-b.border-blue.w-32.mb-8
-          span.block.font-normal.text-black.text-2xl.mb-2 Today
-          span.block.font-bold.text-black.text-lg.pb-2.js-day #{day}
-        button.absolute.pin-r.flex.items-center.mr-8.modal-launch.pin-t.mt-8
-          span.mr-4.invisible.md-visible Add new item
-          img(src=h.icon('add'), alt="")
-      if todayMeals.length < 1
-          p.today__placeholder.text-center.italic.text-lg.text-black.mb-16 No items
-      else if todayMeals.length > 0
-        ul.flex.flex-col.md-flex-row.w-full.-mx-2.overflow-x-scroll
-          each meal in todayMeals
-            li.list-reset.px-2.text-base.mb-4.w-full.md-w-1-2.lg-w-1-3(class="item" data-id=meal.id).flex-no-grow.flex-no-shrink
-              article.relative.bg-white.b-shadow.p-4
-                p.item__data.py-2
-                  span.data__title.block.mb-2 #{meal.title}
-                  span.data__calories.block.text-xl.text-red.font-bold
-                    span.data__number #{meal.calories}
-                    span.text-black.text-base.font-normal  cals
-                .item__functions.flex.flex-col.h-full.absolute.pin-r.pin-t.w-4
-                  button.item-edit.pin-t.pin-r.mt-1.absolute
-                    img(src=h.icon('edit'), alt="").w-4
-                  button.item-delete.pin-b.pin-r.mb-1.absolute
-                    img(src=h.icon('close'), alt="").w-4
-        p.today__total-calories.text-right
-          span.today__total-calories__count.block.text-3xl.text-red.font-bold 1405
-          span.text-lg.text-black calories consumed
+      .days-wrapper.flex.flex-wrap.-mx-2.mt-16
+        each d in h.weekArray
+          unless d === day
+            .day.w-full.md-w-1-2.lg-w-1-3.px-2.mb-16
+              .day-inner.b-shadow.bg-white.h-64.p-2.rounded.relative
+                header.mb-4.flex.justify-center(data-date=dateRender(d))
+                  h2.text-center.text-black.font-normal.text-lg.text-blue.border-b.border-blue.w-32.pb-1.js-day #{d}
+                  button.modal-launch.absolute.pin-r.pin-t.mr-4.mt-4 +
+                if notTodaysMeals.length === 0 
+                  p.text-center.italic.mt-8 No meals logged.
+                else
+                  ul.h-48.overflow-y-scroll.bg-grey-lighter.p-2
+                    each meal in notTodaysMeals
+                      if h.formatDate(meal.date) === dateRender(d)
+                        - const mealID = '' + meal.id + ''
+                        li.list-reset.b-shadow.px-2.text-base.mb-4.bg-white(class="item" data-id=meal.id)
+                          article.relative
+                            p.item__data.py-2
+                              span.data__title.block.mb-2 #{meal.title}
+                              span.data__calories.block.text-xl.text-red.font-bold
+                                span.data__number #{meal.calories}
+                                span.text-black.text-base.font-normal  cals
+                            .item__functions.flex.flex-col.h-full.absolute.pin-r.pin-t.w-4
+                              a(href=`/meals/edit/${meal.id}`).item-edit.pin-t.pin-r.mt-1.absolute
+                                span.w-4
+                                  != h.icon('edit')
+                              a(href=`/meals/api/${meal.id}`).item-delete.pin-b.pin-r.mb-1.absolute
+                                span.w-4
+                                  != h.icon('close')
 
-    .days-wrapper.flex.flex-wrap.-mx-2.mt-16
-      each item in meals
-        unless today === dateRender(item.name)
-          .day.w-full.md-w-1-2.lg-w-1-3.px-2.mb-16
-            .day-inner.b-shadow.bg-white.h-64.p-2.rounded.relative
-              header.mb-4.flex.justify-center(data-date=dateRender(item.name))
-                h2.text-center.text-black.font-normal.text-lg.text-blue.border-b.border-blue.w-32.pb-1.js-day #{item.name}
-                button.modal-launch.absolute.pin-r.pin-t.mr-4.mt-4 +
-              ul.h-48.overflow-y-scroll.bg-grey-lighter.p-2
-                each meal in item.meals
-                  - const mealID = '' + meal.id + ''
-                  li.list-reset.b-shadow.px-2.text-base.mb-4.bg-white(class="item" data-id=meal.id)
-                    article.relative
-                      p.item__data.py-2
-                        span.data__title.block.mb-2 #{meal.title}
-                        span.data__calories.block.text-xl.text-red.font-bold
-                          span.data__number #{meal.calories}
-                          span.text-black.text-base.font-normal  cals
-                      .item__functions.flex.flex-col.h-full.absolute.pin-r.pin-t.w-4
-                        button.item-edit.pin-t.pin-r.mt-1.absolute
-                          img(src=h.icon('edit'), alt="").w-4
-                        button.item-delete.pin-b.pin-r.mb-1.absolute
-                          img(src=h.icon('close'), alt="").w-4
-
-    button.fixed.pin-r.pin-b.mr-4.mb-16.lg-mr-16
-      img(src=h.icon('add'), alt="").w-10.lg-w-12
+      button.modal-launch.fixed.pin-r.pin-b.mr-4.mb-16.lg-mr-16
+        span.w-10.lg-w-12
+          != h.icon('add')

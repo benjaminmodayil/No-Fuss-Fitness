@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 143);
+/******/ 	return __webpack_require__(__webpack_require__.s = 144);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -1898,7 +1898,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             try {
                 oldLocale = globalLocale._abbr;
                 var aliasedRequire = require;
-                __webpack_require__(175)("./" + name);
+                __webpack_require__(177)("./" + name);
                 getSetGlobalLocale(oldLocale);
             } catch (e) {}
         }
@@ -4473,7 +4473,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     return hooks;
 });
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(174)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(176)(module)))
 
 /***/ }),
 /* 1 */
@@ -4483,9 +4483,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 
 module.exports = __webpack_require__(9);
-module.exports.easing = __webpack_require__(148);
-module.exports.canvas = __webpack_require__(149);
-module.exports.options = __webpack_require__(150);
+module.exports.easing = __webpack_require__(150);
+module.exports.canvas = __webpack_require__(151);
+module.exports.options = __webpack_require__(152);
 
 /***/ }),
 /* 2 */
@@ -4666,10 +4666,10 @@ exports.$$ = $$;
 
 
 module.exports = {};
-module.exports.Arc = __webpack_require__(156);
-module.exports.Line = __webpack_require__(157);
-module.exports.Point = __webpack_require__(158);
-module.exports.Rectangle = __webpack_require__(159);
+module.exports.Arc = __webpack_require__(158);
+module.exports.Line = __webpack_require__(159);
+module.exports.Point = __webpack_require__(160);
+module.exports.Rectangle = __webpack_require__(161);
 
 /***/ }),
 /* 6 */
@@ -5176,8 +5176,9 @@ module.exports = {
 "use strict";
 
 
-exports.mealModalTemplate = '\n  <div class="modal--blur">\n  </div>\n    <div class="modal-inner">\n      <button class="modal-close">close</button>\n      <h2 class="m-top-32">Add an item for <span class="modal-day">Tuesday</span></h2>\n      <form method="POST" class="form">\n        <label class="block screenreader-only" for="title">Title</label>\n        <input class="block" type="text" id="title" name="title" value="Title" placeholder="Meal name" required autocomplete="off"\n          aria-required="true">\n        <label class="block screenreader-only" for="calories">calories</label>\n        <input class="block" type="text" id="calories" name="calories" placeholder="0" autocomplete="off>\n        <label class="block screenreader-only" for="date">Date</label>\n        <input class="block" type="date" id="date" name="date">\n        <button class="modal-submit" type="submit">add +</button>\n      </form>\n    </div>\n  ';
+exports.mealModalTemplate = '\n  <div class="modal--blur">\n  </div>\n  <div class="modal-inner flex flex-col rounded p-4">\n    <button class="modal-close self-end bg-red text-white py-2 px-4 rounded">\n      <span class="screenreader-only">close</span>\n      <img src="/images/icons/icon-close-white.svg" alt="">\n    </button>\n    <h2 class="mb-16">\n      <span class="block text-center text-lg font-normal">\n        Add\n        <span class="modal-type">item</span> for\n        <span class="modal-day block text-blue text-2xl font-bold mt-1">Tuesday</span>\n      </span>\n    </h2>\n    <form method="POST" class="form px-8">\n      <label class="block text-grey-darker text-sm font-bold mb-2" for="title">Title</label>\n      <input class="block shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mx-auto mb-4" type="text" id="title" name="title" value="Title" placeholder="Meal name" required autocomplete="off"\n        aria-required="true">\n      <label class="block text-grey-darker text-sm font-bold mb-2" for="calories">Calories</label>\n      <input class="block shadow appearance-none border rounded w-1-6 py-2 px-3 text-grey-darker mb-4" type="number" id="calories" name="calories" placeholder="0" autocomplete="off">\n      <label class="block screenreader-only" for="date">Date</label>\n      <input class="block screenreader-only" type="date" id="date" name="date">\n      <button class="modal-submit bg-green hover:bg-green-dark text-white font-bold py-2 px-4 mt-8 rounded float-right" type="submit">add +</button>\n    </form>\n  </div>\n  ';
 
+exports.exerciseModalTemplate = '\n<div class="modal--blur">\n</div>\n<div class="modal-inner flex flex-col rounded p-4">\n  <button class="modal-close self-end bg-red text-white py-2 px-4 rounded">\n    <span class="screenreader-only">close</span>\n    <img src="/images/icons/icon-close-white.svg" alt="">\n  </button>\n  <h2 class="mb-16">\n    <span class="block text-center text-lg font-normal">\n      Add\n      <span class="modal-type">item</span> for\n      <span class="modal-day block text-blue text-2xl font-bold mt-1">Tuesday</span>\n    </span>\n  </h2>\n  <form method="POST" class="form form--exercise px-8">\n    <label class="block text-grey-darker text-sm font-bold mb-2" for="title">Title</label>\n    <input class="block shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mx-auto mb-4" type="text" id="title" name="title" value="Title" placeholder="exercise name" required autocomplete="off" aria-required="true">\n\n    <div class="flex my-8">\n      <div class="w-1-2 flex justify-center">\n        <input class="mr-2" type="radio" id="type-1" name="type" value="reps">\n        <label for="type-1">Reps</label>\n      </div>\n\n      <div class="w-1-2 flex justify-center">\n        <input class="mr-2" type="radio" id="type-2" name="type" value="run">\n        <label for="type-2">Run</label>\n      </div>\n    </div>\n\n    <div class="screenreader-only modal--rep">\n      <label class="block text-grey-darker text-sm font-bold mb-2" for="reps">Reps</label>\n      <input class="block shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mx-auto mb-4" type="text" id="reps" name="reps" placeholder="reps #" autocomplete="off">\n\n      <label class="block text-grey-darker text-sm font-bold mb-2" for="sets">Sets</label>\n      <input class="block shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mx-auto mb-4" type="text" id="sets" name="sets" placeholder="sets #" autocomplete="off" aria-required="true">\n    </div>\n\n    <div class="screenreader-only modal--run">\n      <label class="block text-grey-darker text-sm font-bold mb-2" for="distance">Distance</label>\n      <input class="block shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mx-auto mb-4" type="text" id="distance" name="distance" placeholder="distance # in miles" autocomplete="off" aria-required="true">\n\n      <label class="block text-grey-darker text-sm font-bold mb-2" for="time">Time</label>\n      <input class="block shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mx-auto mb-4" type="text" id="time" name="time" placeholder="time" autocomplete="off" aria-required="true">\n\n      <label class="block text-grey-darker text-sm font-bold mb-2" for="calories">Calories</label>\n      <input class="block shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mx-auto mb-4" type="text" id="calories" name="calories" placeholder="0">\n    </div>\n    <label class="block text-grey-darker text-sm font-bold mb-2" for="date">Date</label>\n    <input class="block shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mx-auto mb-4" type="date" id="date" name="date">\n\n    <button class="modal-submit bg-green hover:bg-green-dark text-white font-bold py-2 px-4 mt-8 rounded float-right" type="submit">add +</button>\n  </form>\n</div>\n  ';
 exports.itemTemplate = function (obj, type) {
   var listItem = document.createElement('li');
   listItem.dataset.id = obj._id;
@@ -5549,6 +5550,8 @@ helpers.getValueAtIndexOrDefault = helpers.valueAtIndexOrDefault;
 "use strict";
 
 
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
 var _moment = __webpack_require__(0);
 
 var _moment2 = _interopRequireDefault(_moment);
@@ -5559,6 +5562,14 @@ var _templating = __webpack_require__(8);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+function cookiePlease(name) {
+  var match = document.cookie.match(new RegExp(name + '=([^;]+)'));
+  if (match) return match[1];
+}
+var jwt = cookiePlease('jwt');
+console.log(jwt);
 // update (needs data in template first)
 // let updateDB = identification => {
 //   let listItem = $(`[data-id='${identification}']`)
@@ -5581,14 +5592,25 @@ var fetchItem = function fetchItem(url, data) {
   var meth = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'GET';
 
   var headers = {
+    headers: {
+      'content-type': 'application/json',
+      Authorization: 'Bearer ' + jwt
+    },
     body: JSON.stringify(data),
     credentials: 'same-origin',
-    headers: {
-      'content-type': 'application/json'
-    },
     method: '' + meth.toUpperCase()
   };
+  console.log(headers.headers);
   return fetch(url, headers);
+};
+
+var checkForContainer = function checkForContainer() {
+  if ((0, _bling.$)('.today__placeholder')) {
+    var listContainer = document.createElement('ul');
+    listContainer.classList.add('flex', 'flex-col', 'md-flex-row', 'w-full', '-mx-2', 'overflow-x-scroll');
+    (0, _bling.$)('.today__placeholder').prepend(listContainer);
+    (0, _bling.$)('.today__placeholder').remove();
+  }
 };
 
 var addThis = function addThis(e) {
@@ -5600,10 +5622,10 @@ var addThis = function addThis(e) {
   var inputs = form.querySelectorAll('[name]');
 
   inputs.forEach(function (i) {
-    console.log(i.name);
     if (i.name === 'date') {
       dbData[i.name] = (0, _moment2.default)(i.value).format('YYYY-MM-DD');
-      console.log(dbData[i.name]);
+    } else if (i.name === 'type') {
+      if (i.checked) dbData[i.name] = i.value;
     } else {
       dbData[i.name] = i.value;
     }
@@ -5612,39 +5634,56 @@ var addThis = function addThis(e) {
   fetchItem(pathname + '/api', dbData, 'POST').then(function () {
     clearForm(form);
   }).then(function () {
-    fetchLatest(pathname, dbData);
+    console.log('1');
+    pathname === '/progress' ? '' : fetchLatest(pathname, dbData);
+    console.log('2');
+    checkForContainer();
+    console.log('3');
   }).catch(function (err) {
     console.log(err);
   });
 };
 
 var fetchLatest = function fetchLatest(pathname, data) {
-  fetch(pathname + '/api').then(function (response) {
-    response.text().then(function (text) {
-      var textJSON = JSON.parse(text);
-      var items = textJSON[[Object.keys(textJSON)[0]]];
-      var date = items[0].date;
+  var headers = {
+    headers: {
+      'content-type': 'application/json',
+      Authorization: 'Bearer ' + jwt
+    },
+    credentials: 'same-origin'
+  };
 
-      date = _moment2.default.utc(date).format('YYYY-MM-DD');
-      var type = (0, _bling.$)('[data-date="' + date + '"]').closest('.today-wrapper') ? 'featured' : 'normal';
-      console.log(type);
-      if ((0, _bling.$)('[data-date="' + date + '"]')) (0, _bling.$)('[data-date="' + date + '"]').nextElementSibling.append((0, _templating.itemTemplate)(items[0], type));
-    });
+  fetch(pathname + '/api', headers).then(function (res) {
+    return res.text();
+  }).then(function (res) {
+    console.log(res);
+    var textJSON = JSON.parse(res);
+    var items = textJSON[[Object.keys(textJSON)[0]]];
+    var date = items[0].date;
 
-    checkTodaysCalories();
+    date = _moment2.default.utc(date).format('YYYY-MM-DD');
+    var type = (0, _bling.$)('[data-date="' + date + '"]').closest('.today-wrapper') ? 'featured' : 'normal';
+    if ((0, _bling.$)('[data-date="' + date + '"]')) {
+      (0, _bling.$)('[data-date="' + date + '"]').nextElementSibling.append((0, _templating.itemTemplate)(items[0], type));
+      checkTodaysCalories();
+    }
   });
 };
 
 var checkTodaysCalories = function checkTodaysCalories() {
   var module = (0, _bling.$)('[data-module="DayCalories"]');
-  var amt = module.querySelectorAll('li');
-  var count = 0;
-  var arr = amt.forEach(function (item) {
-    var el = item.querySelector('.data__number');
-    count += parseInt(el.textContent);
-  });
+  if (!module) {
+    return;
+  } else {
+    var amt = module.querySelectorAll('li');
+    var count = 0;
+    var arr = amt.forEach(function (item) {
+      var el = item.querySelector('.data__number');
+      count += parseInt(el.textContent);
+    });
 
-  (0, _bling.$)('.today__total-calories__count').textContent = '' + count;
+    if ((0, _bling.$)('.today__total-calories__count')) (0, _bling.$)('.today__total-calories__count').textContent = '' + count;
+  }
 };
 
 var clearForm = function clearForm(node) {
@@ -5654,16 +5693,41 @@ var clearForm = function clearForm(node) {
   });
 };
 
+var switchTypeInForm = function switchTypeInForm(dom) {
+  if (dom.querySelector('.form--exercise')) {
+    var items = [].concat(_toConsumableArray(dom.querySelectorAll('[name="type"]')));
+
+    var _items = _slicedToArray(items, 2),
+        item1 = _items[0],
+        item2 = _items[1];
+
+    items.map(function (i) {
+      return i.addEventListener('click', function () {
+        if (item1.checked) {
+          dom.querySelector('.modal--run').classList.add('screenreader-only');
+          dom.querySelector('.modal--rep').classList.remove('screenreader-only');
+        } else if (item2.checked) {
+          dom.querySelector('.modal--run').classList.remove('screenreader-only');
+          dom.querySelector('.modal--rep').classList.add('screenreader-only');
+        }
+      });
+    });
+  }
+};
+
 var modalOpen = function modalOpen(e) {
   var bodyEl = (0, _bling.$)('body');
   var tempDOM = document.createElement('div');
   tempDOM.classList.add('--present');
   tempDOM.classList.add('modal');
-  tempDOM.innerHTML = _templating.mealModalTemplate;
+  var template = (0, _bling.$)('[data-name]').dataset.name === 'exercises' ? _templating.exerciseModalTemplate : _templating.mealModalTemplate;
+  tempDOM.innerHTML = template;
   bodyEl.append(tempDOM);
 
   var dateValue = e.currentTarget.closest('[data-date]').dataset.date;
   var dateDayName = e.currentTarget.parentNode.querySelector('.js-day').textContent;
+
+  switchTypeInForm(tempDOM);
 
   var modalDay = tempDOM.querySelector('.modal-day');
   modalDay.textContent = dateDayName;
@@ -5675,10 +5739,11 @@ var modalOpen = function modalOpen(e) {
 
   var modalSubmit = (0, _bling.$)('.modal-submit').closest('.form');
   modalSubmit.on('submit', addThis.bind(undefined));
+  modalSubmit.on('submit', modalClose);
 };
 
-var modalClose = function modalClose(e) {
-  e.currentTarget.closest('.modal').remove();
+var modalClose = function modalClose() {
+  (0, _bling.$)('.modal').remove();
 };
 
 var getDay = function getDay() {
@@ -5687,13 +5752,24 @@ var getDay = function getDay() {
   return (0, _moment2.default)().day('' + (day.charAt(0).toUpperCase() + day.slice(1))).format('YYYY-MM-DD');
 };
 
-var deleteThis = function deleteThis(e, path) {
-  var item = e.currentTarget.closest('[data-id]');
-  var id = item.dataset.id;
+var deleteThis = function deleteThis(e) {
+  e.preventDefault();
+  var headers = {
+    headers: {
+      'content-type': 'application/json',
+      Authorization: 'Bearer ' + jwt
+    },
+    credentials: 'same-origin',
+    method: 'DELETE'
+  };
 
-  fetchItem('' + (path + id), { id: id }, 'DELETE').then(function () {
-    console.log('Removing item ' + id);
-    item.remove();
+  var href = e.currentTarget.getAttribute('href');
+  var listItem = e.currentTarget.closest('li');
+
+  fetch(href, headers).then(function () {
+    listItem.remove();
+  }).catch(function (err) {
+    console.log('error', err);
   });
 };
 
@@ -5706,7 +5782,8 @@ module.exports = {
   modalClose: modalClose,
   getDay: getDay,
   deleteThis: deleteThis,
-  checkTodaysCalories: checkTodaysCalories
+  checkTodaysCalories: checkTodaysCalories,
+  jwt: jwt
 };
 
 /***/ }),
@@ -5724,11 +5801,17 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _bling = __webpack_require__(4);
 
-var _chart = __webpack_require__(146);
+var _chart = __webpack_require__(148);
 
 var _chart2 = _interopRequireDefault(_chart);
 
+var _moment = __webpack_require__(0);
+
+var _moment2 = _interopRequireDefault(_moment);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -5738,14 +5821,65 @@ var ChartDashboard = function () {
 
     this.el = el;
     this.setupDOM();
+    this.generateData();
   }
 
   _createClass(ChartDashboard, [{
     key: 'setupDOM',
     value: function setupDOM() {
-      this.navLinks = this.el.querySelectorAll('.home__scroll-navigation__inner__links');
       this.ctx = this.el.querySelector('#myChart');
-      this.myChart = new _chart2.default(this.ctx, chartObj);
+      this.table = this.el.querySelector('table');
+      this.data = this.el.querySelectorAll('.chart-data');
+      this.dataPoints = this.generateData();
+      this.myChart = new _chart2.default(this.ctx, this.renderChart());
+    }
+  }, {
+    key: 'generateData',
+    value: function generateData() {
+      if (!(this.data.length < 2)) {
+        return this.data.map(function (i) {
+          return {
+            weight: i.children[0].textContent,
+            date: i.children[1].textContent
+          };
+        });
+      }
+    }
+  }, {
+    key: 'removeTable',
+    value: function removeTable() {
+      this.table && this.table.remove();
+    }
+  }, {
+    key: 'renderChart',
+    value: function renderChart() {
+      this.removeTable();
+      return {
+        type: 'line',
+        data: {
+          labels: [].concat(_toConsumableArray(this.generateData().map(function (i) {
+            return _moment2.default.utc(i.date).format('M-DD');
+          }))),
+          datasets: [{
+            label: 'Weight over time',
+            data: [].concat(_toConsumableArray(this.generateData().map(function (i) {
+              return i.weight;
+            }))),
+            backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)', 'rgba(215, 189, 34, 0.2)'],
+            borderColor: ['rgba(255,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)', 'rgba(215, 189, 24, 1)'],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true
+              }
+            }]
+          }
+        }
+      };
     }
   }]);
 
@@ -5758,12 +5892,12 @@ exports.default = ChartDashboard;
 var chartObj = {
   type: 'line',
   data: {
-    labels: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+    labels: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
     datasets: [{
-      label: '# of Votes',
-      data: [12, 19, 3, 5, 2, 3],
-      backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'],
-      borderColor: ['rgba(255,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
+      label: 'Weight over time',
+      data: [12, 19, 3, 5, 2, 3, 20],
+      backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)', 'rgba(215, 189, 34, 0.2)'],
+      borderColor: ['rgba(255,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)', 'rgba(215, 189, 24, 1)'],
       borderWidth: 1
     }]
   },
@@ -5776,6 +5910,12 @@ var chartObj = {
       }]
     }
   }
+
+  // db query call to Progress model on /overview route.
+  // create a small <table> with data, but once ChartDashboard loads
+  // it removes the table after taking the data
+  // and replaces it with the chart.
+
 };
 
 /***/ }),
@@ -5788,8 +5928,8 @@ var chartObj = {
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 /* MIT license */
-var convert = __webpack_require__(152);
-var string = __webpack_require__(154);
+var convert = __webpack_require__(154);
+var string = __webpack_require__(156);
 
 var Color = function Color(obj) {
 	if (obj instanceof Color) {
@@ -6611,8 +6751,8 @@ module.exports = {
 
 
 var helpers = __webpack_require__(1);
-var basic = __webpack_require__(160);
-var dom = __webpack_require__(161);
+var basic = __webpack_require__(162);
+var dom = __webpack_require__(163);
 
 // @TODO Make possible to select another platform at build time.
 var implementation = dom._enabled ? dom : basic;
@@ -19182,42 +19322,32 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 var _helper = __webpack_require__(10);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var DayCalories = function () {
-  function DayCalories(el) {
-    _classCallCheck(this, DayCalories);
+var DayCalories = function DayCalories(el) {
+  _classCallCheck(this, DayCalories);
 
-    this.el = el;
-    this.setupDOM();
-    this.bindEvents();
-    (0, _helper.checkTodaysCalories)();
-  }
+  this.el = el;
+  // this.setupDOM()
+  // this.bindEvents()
+  (0, _helper.checkTodaysCalories)();
+}
 
-  _createClass(DayCalories, [{
-    key: 'setupDOM',
-    value: function setupDOM() {
-      this.calories = this.el.querySelector('.today__total-calories__count');
-    }
-  }, {
-    key: 'bindEvents',
-    value: function bindEvents() {
-      this.calories.addEventListener('submit', this.doThis.bind(this));
-    }
-  }, {
-    key: 'doThis',
-    value: function doThis(e) {
-      e.preventDefault();
-      addThis(e, '/progress');
-    }
-  }]);
+// setupDOM() {
+//   this.calories = this.el.querySelector('.today__total-calories__count')
+// }
 
-  return DayCalories;
-}();
+// bindEvents() {
+//   this.calories.addEventListener('submit', this.doThis.bind(this))
+// }
+
+// doThis(e) {
+//   e.preventDefault()
+//   addThis(e, '/progress')
+// }
+;
 
 // var in_dom = document.body.contains(element);
 // var observer = new MutationObserver(function(mutations) {
@@ -19242,70 +19372,70 @@ exports.default = DayCalories;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+// export default class LoginForm {
+//   constructor(el) {
+//     this.el = el
+//     this.setupDOM()
+//     this.bindEvents()
+//   }
 
+//   setupDOM() {
+//     this.form = this.el
+//     this.inputs = this.form.querySelectorAll('[name]')
+//     this.globalToken = null
+//   }
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+//   bindEvents() {
+//     this.form.addEventListener('submit', this.formSubmit.bind(this))
+//   }
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+//   runTest() {
+//     console.log('SUCCESS')
+//   }
 
-var _bling = __webpack_require__(4);
+//   formSubmit(e) {
+//     e.preventDefault()
+//     let parsedData = {}
+//     this.inputs.forEach(i => (parsedData[i.name] = i.value))
 
-var _helper = __webpack_require__(10);
+//     let headers = {
+//       body: JSON.stringify(parsedData),
+//       credentials: 'same-origin',
+//       headers: {
+//         'content-type': 'application/json',
+//         Authorization: 'Bearer ' + this.globalToken
+//       },
+//       method: 'POST'
+//       // redirect: '/api/auth/login'
+//     }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+//     fetch('/api/auth/login', headers)
+//       .then(data => {
+//         console.log(data)
+//         if (data.status === 401) {
+//           throw 'Login not working.'
+//         } else if (data.status === 400) {
+//           throw 'Field missing.'
+//         } else {
+//           return data.json()
+//         }
+//       })
+//       .then(res => {
+//         // this.globalToken = res.authToken
+//         localStorage.setItem('token', res.authToken)
+//         // window.location.replace(res.url)
+//       })
+//       .catch(err => {
+//         console.error(err)
+//       })
+//   }
 
-var Meals = function () {
-  function Meals(el) {
-    _classCallCheck(this, Meals);
+//   login(e) {
+//     //   e.preventDefault()
+//     //   addThis(e, '/progress')
+//   }
+// }
 
-    this.el = el;
-    this.setupDOM();
-    this.bindEvents();
-  }
-
-  _createClass(Meals, [{
-    key: 'setupDOM',
-    value: function setupDOM() {
-      this.form = this.el.querySelector('.form');
-      this.modalBtns = this.el.querySelectorAll('.modal-launch');
-
-      this.mealDeleteBtns = this.el.querySelectorAll('[data-module="Meals"] .item-delete');
-      this.exerciseDeleteBtns = this.el.querySelectorAll('[data-module="Exercises"] .item-delete');
-    }
-  }, {
-    key: 'bindEvents',
-    value: function bindEvents() {
-      var _this = this;
-
-      // this.form.on('submit', addThis)
-      this.modalBtns.forEach(function (i) {
-        return i.on('click', _helper.modalOpen);
-      });
-      this.mealDeleteBtns.map(function (i) {
-        return i.on('click', _this.deleteAndUpdateCalories.bind(_this));
-      });
-      this.exerciseDeleteBtns.map(function (i) {
-        return i.on('click', function (e) {
-          return (0, _helper.deleteThis)(e, '/exercises/api/');
-        });
-      });
-    }
-  }, {
-    key: 'deleteAndUpdateCalories',
-    value: function deleteAndUpdateCalories(e) {
-      (0, _helper.deleteThis)(e, '/meals/api/');
-      setTimeout(function () {
-        (0, _helper.checkTodaysCalories)();
-      }, 700);
-    }
-  }]);
-
-  return Meals;
-}();
-
-exports.default = Meals;
 
 /***/ }),
 /* 141 */
@@ -19347,6 +19477,7 @@ var Nav = function () {
   }, {
     key: 'handleMenu',
     value: function handleMenu(e) {
+      this.navTrigger.classList.toggle('menu-flip');
       this.targetElements.forEach(function (item) {
         return item.classList.toggle('js-menu-toggle');
       });
@@ -19360,6 +19491,68 @@ exports.default = Nav;
 
 /***/ }),
 /* 142 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _bling = __webpack_require__(4);
+
+var _helper = __webpack_require__(10);
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Pages = function () {
+  function Pages(el) {
+    _classCallCheck(this, Pages);
+
+    this.el = el;
+    this.setupDOM();
+    this.bindEvents();
+  }
+
+  _createClass(Pages, [{
+    key: 'setupDOM',
+    value: function setupDOM() {
+      this.form = this.el.querySelector('.form');
+      this.modalBtns = this.el.querySelectorAll('.modal-launch');
+      this.deleteBtns = this.el.querySelectorAll('.item-delete');
+    }
+  }, {
+    key: 'bindEvents',
+    value: function bindEvents() {
+      var _this = this;
+
+      this.modalBtns.forEach(function (i) {
+        return i.on('click', _helper.modalOpen);
+      });
+      this.deleteBtns.map(function (i) {
+        return i.on('click', _this.deleteAndUpdateCalories.bind(_this));
+      });
+    }
+  }, {
+    key: 'deleteAndUpdateCalories',
+    value: function deleteAndUpdateCalories(e) {
+      (0, _helper.deleteThis)(e);
+      setTimeout(function () {
+        (0, _helper.checkTodaysCalories)();
+      }, 700);
+    }
+  }]);
+
+  return Pages;
+}();
+
+exports.default = Pages;
+
+/***/ }),
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19412,13 +19605,13 @@ var Example = function () {
 exports.default = Example;
 
 /***/ }),
-/* 143 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _style = __webpack_require__(144);
+var _style = __webpack_require__(145);
 
 var _style2 = _interopRequireDefault(_style);
 
@@ -19428,26 +19621,33 @@ var _templating = __webpack_require__(8);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var moduleElements = document.querySelectorAll('[data-module]');
-// import meal from './modules/meal'
-// import '../sass/style.scss'
+__webpack_require__(146);
 
+
+var moduleElements = document.querySelectorAll('[data-module]');
 
 for (var i = 0; i < moduleElements.length; i++) {
   var el = moduleElements[i];
   var name = el.getAttribute('data-module');
-  var Module = __webpack_require__(145)("./" + name).default;
+  var Module = __webpack_require__(147)("./" + name).default;
   new Module(el);
 }
 
 /***/ }),
-/* 144 */
+/* 145 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 145 */
+/* 146 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/***/ }),
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -19457,14 +19657,16 @@ var map = {
 	"./DailyLog.js": 138,
 	"./DayCalories": 139,
 	"./DayCalories.js": 139,
-	"./Meals": 140,
-	"./Meals.js": 140,
+	"./LoginForm": 140,
+	"./LoginForm.js": 140,
 	"./Nav": 141,
 	"./Nav.js": 141,
+	"./Pages": 142,
+	"./Pages.js": 142,
 	"./bling": 4,
 	"./bling.js": 4,
-	"./example": 142,
-	"./example.js": 142,
+	"./example": 143,
+	"./example.js": 143,
 	"./templating": 8,
 	"./templating.js": 8
 };
@@ -19482,10 +19684,10 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 145;
+webpackContext.id = 147;
 
 /***/ }),
-/* 146 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19494,12 +19696,12 @@ webpackContext.id = 145;
 /**
  * @namespace Chart
  */
-var Chart = __webpack_require__(147)();
+var Chart = __webpack_require__(149)();
 
 Chart.helpers = __webpack_require__(1);
 
 // @todo dispatch these helpers into appropriated helpers/helpers.* file and write unit tests!
-__webpack_require__(151)(Chart);
+__webpack_require__(153)(Chart);
 
 Chart.defaults = __webpack_require__(2);
 Chart.Element = __webpack_require__(3);
@@ -19510,40 +19712,40 @@ Chart.platform = __webpack_require__(14);
 Chart.plugins = __webpack_require__(15);
 Chart.Ticks = __webpack_require__(7);
 
-__webpack_require__(162)(Chart);
-__webpack_require__(163)(Chart);
 __webpack_require__(164)(Chart);
 __webpack_require__(165)(Chart);
 __webpack_require__(166)(Chart);
 __webpack_require__(167)(Chart);
-
 __webpack_require__(168)(Chart);
 __webpack_require__(169)(Chart);
+
 __webpack_require__(170)(Chart);
 __webpack_require__(171)(Chart);
 __webpack_require__(172)(Chart);
 __webpack_require__(173)(Chart);
+__webpack_require__(174)(Chart);
+__webpack_require__(175)(Chart);
 
 // Controllers must be loaded after elements
 // See Chart.core.datasetController.dataElementType
-__webpack_require__(176)(Chart);
-__webpack_require__(177)(Chart);
 __webpack_require__(178)(Chart);
 __webpack_require__(179)(Chart);
 __webpack_require__(180)(Chart);
 __webpack_require__(181)(Chart);
 __webpack_require__(182)(Chart);
-
 __webpack_require__(183)(Chart);
 __webpack_require__(184)(Chart);
+
 __webpack_require__(185)(Chart);
 __webpack_require__(186)(Chart);
 __webpack_require__(187)(Chart);
 __webpack_require__(188)(Chart);
 __webpack_require__(189)(Chart);
+__webpack_require__(190)(Chart);
+__webpack_require__(191)(Chart);
 
 // Loading built-it plugins
-var plugins = __webpack_require__(190);
+var plugins = __webpack_require__(192);
 for (var k in plugins) {
   if (plugins.hasOwnProperty(k)) {
     Chart.plugins.register(plugins[k]);
@@ -19615,7 +19817,7 @@ Chart.canvasHelpers = Chart.helpers.canvas;
 Chart.layoutService = Chart.layouts;
 
 /***/ }),
-/* 147 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19670,7 +19872,7 @@ module.exports = function () {
 };
 
 /***/ }),
-/* 148 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19926,7 +20128,7 @@ module.exports = {
 helpers.easingEffects = effects;
 
 /***/ }),
-/* 149 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20142,7 +20344,7 @@ helpers.drawRoundedRectangle = function (ctx) {
 };
 
 /***/ }),
-/* 150 */
+/* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20244,7 +20446,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 151 */
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20840,13 +21042,13 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 152 */
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var conversions = __webpack_require__(153);
+var conversions = __webpack_require__(155);
 
 var convert = function convert() {
   return new Converter();
@@ -20936,7 +21138,7 @@ Converter.prototype.getValues = function (space) {
 module.exports = convert;
 
 /***/ }),
-/* 153 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21639,14 +21841,14 @@ for (var key in cssKeywords) {
 }
 
 /***/ }),
-/* 154 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 /* MIT license */
-var colorNames = __webpack_require__(155);
+var colorNames = __webpack_require__(157);
 
 module.exports = {
    getRgba: getRgba,
@@ -21856,7 +22058,7 @@ for (var name in colorNames) {
 }
 
 /***/ }),
-/* 155 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22014,7 +22216,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 156 */
+/* 158 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22127,7 +22329,7 @@ module.exports = Element.extend({
 });
 
 /***/ }),
-/* 157 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22224,7 +22426,7 @@ module.exports = Element.extend({
 });
 
 /***/ }),
-/* 158 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22336,7 +22538,7 @@ module.exports = Element.extend({
 });
 
 /***/ }),
-/* 159 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22554,7 +22756,7 @@ module.exports = Element.extend({
 });
 
 /***/ }),
-/* 160 */
+/* 162 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22577,7 +22779,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 161 */
+/* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23007,7 +23209,7 @@ helpers.addEvent = _addEventListener;
 helpers.removeEvent = _removeEventListener;
 
 /***/ }),
-/* 162 */
+/* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23184,7 +23386,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 163 */
+/* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24128,7 +24330,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 164 */
+/* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24464,7 +24666,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 165 */
+/* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24516,7 +24718,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 166 */
+/* 168 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25443,7 +25645,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 167 */
+/* 169 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26396,7 +26598,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 168 */
+/* 170 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26587,7 +26789,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 169 */
+/* 171 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26725,7 +26927,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 170 */
+/* 172 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26916,7 +27118,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 171 */
+/* 173 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27256,7 +27458,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 172 */
+/* 174 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27777,7 +27979,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 173 */
+/* 175 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28555,7 +28757,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 174 */
+/* 176 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28585,7 +28787,7 @@ module.exports = function (module) {
 };
 
 /***/ }),
-/* 175 */
+/* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -28848,10 +29050,10 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 175;
+webpackContext.id = 177;
 
 /***/ }),
-/* 176 */
+/* 178 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29345,7 +29547,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 177 */
+/* 179 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29513,7 +29715,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 178 */
+/* 180 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29818,7 +30020,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 179 */
+/* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30154,7 +30356,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 180 */
+/* 182 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30382,7 +30584,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 181 */
+/* 183 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30551,7 +30753,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 182 */
+/* 184 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30598,7 +30800,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 183 */
+/* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30614,7 +30816,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 184 */
+/* 186 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30629,7 +30831,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 185 */
+/* 187 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30645,7 +30847,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 186 */
+/* 188 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30661,7 +30863,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 187 */
+/* 189 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30677,7 +30879,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 188 */
+/* 190 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30693,7 +30895,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 189 */
+/* 191 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30707,19 +30909,19 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 190 */
+/* 192 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = {};
-module.exports.filler = __webpack_require__(191);
-module.exports.legend = __webpack_require__(192);
-module.exports.title = __webpack_require__(193);
+module.exports.filler = __webpack_require__(193);
+module.exports.legend = __webpack_require__(194);
+module.exports.title = __webpack_require__(195);
 
 /***/ }),
-/* 191 */
+/* 193 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31043,7 +31245,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 192 */
+/* 194 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31621,7 +31823,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 193 */
+/* 195 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
