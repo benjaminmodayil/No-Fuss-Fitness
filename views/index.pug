@@ -2,7 +2,7 @@ include ./mixins/_doc.pug
 
 +doc
 body.landing-body
-  nav.landing-nav.flex.justify-end.p-2.bg-blue.md-bg-transparent
+  nav.landing-nav.flex.justify-end.py-2.px-4.bg-blue.md-bg-transparent
     a(href="/login", title="Log in to NoFuss").no-underline.border-2.border-white.text-white.hover-text-blue.hover-bg-white.px-4.py-2.font-bold Log in
     a(href="/signup", title="Sign-up for NoFuss").no-underline.border-2.border-green.bg-green.px-4.py-2.ml-4.font-bold.text-white.hover-text-white.hover-text-blue.hover-bg-white.hover-border-white Sign up
   main.landing-main
@@ -13,7 +13,7 @@ body.landing-body
         p.leading-normal.text-white.md-text-black Welcome to No-Fuss Fitness. No Fuss is an application that lets you log all your meals, exercises, and weight into your user account. The application also lets you view your weight loss in chart form over a period of time.
         .landing__preamble-links.mt-8.flex.justify-end
           a(href="/login", title="Log in to NoFuss").no-underline.border-2.border-blue.text-blue.px-8.py-3.font-bold.hover-text-white.hover-bg-blue Log in
-          a(href="/sign-up", title="Sign-up for NoFuss").no-underline.border-2.border-green.bg-green.text-white.px-8.py-3.font-bold.ml-4.hover-text-white.hover-bg-blue.hover-border-blue Sign up
+          a(href="/signup", title="Sign-up for NoFuss").no-underline.border-2.border-green.bg-green.text-white.px-8.py-3.font-bold.ml-4.hover-text-white.hover-bg-blue.hover-border-blue Sign up
       .landing__preamble__illustration.px-4.md-px-16
         img(src=h.svgIMG('landing/ill-jog'), alt="")
 
@@ -40,7 +40,7 @@ body.landing-body
               span.block.w-32.text-sm.text-white.text-center.bg-blue.py-1.px-2.mb-2.italic.rounded Beta Release
               p.leading-normal Visualize those gains... or losses! Currently only tracking weight, in the future you'll be able to visualize more correlations between your data with day, month, and year charts and graphs.
             .landing-extra__image.w-full.md-w-2-5.md-px-8.flex.relative
-              img(src="http://via.placeholder.com/450x250", alt="").flex-img
+              img(src="/images/landing/feature-graph.png", alt="").flex-img
 
         li.landing-extra__items.container.md-mb-32
           .md--mx-8.flex.md-flex-row-reverse.flex-col.md-flex-row.justify-between
@@ -49,7 +49,7 @@ body.landing-body
               span.block.w-32.text-sm.text-white.text-center.bg-blue.py-1.px-2.mb-2.italic.rounded Current Release
               p.leading-normal Create, Read, Update, and Destroy your data with your own API endpoint. Just check out `/meals`, `/exercises`, or `/progress` after placing some data points in the application.
             .landing-extra__image.w-full.md-w-2-5.md-px-8.flex.relative
-              img(src="http://via.placeholder.com/450x250", alt="").flex-img
+              img(src="/images/landing/feature-api.png", alt="").flex-img
 
         li.landing-extra__items.container.md-mb-0
           .md--mx-8.flex.flex-col.md-flex-row.justify-between
@@ -58,7 +58,7 @@ body.landing-body
               span.block.w-32.text-sm.text-white.text-center.bg-blue.py-1.px-2.mb-2.italic.rounded Future Release
               p.leading-normal Taking No-Fuss to another level. Why have manually input fitness data when you have a tracker that does it already for you? Keep track of meals/exercises/and your weight through the Fitbit app and see your data automatically update here.
             .landing-extra__image.w-full.md-w-2-5.md-px-8.flex.relative
-              img(src="http://via.placeholder.com/450x250", alt="").flex-img
+              img(src="/images/landing/feature-soon.svg", alt="").flex-img
 
     footer.bg-blue.py-4
       p.text-white.text-sm.text-center.italic a free project created by 

@@ -30,6 +30,7 @@ exports.index = async (req, res, next) => {
     info &&
     moment.utc(weight[0].date).format('YYYY-MM-DD') === moment.utc().format('YYYY-MM-DD')
 
+  console.log(items)
   res.render('overview', {
     title: 'Overview',
     weights: items,
@@ -75,7 +76,7 @@ exports.post = async (req, res, next) => {
 
 let fiveWkAgo = moment
   .utc()
-  .subtract(2, 'weeks')
+  .subtract(5, 'weeks')
   .startOf('day')
 
 let now = moment.utc().endOf('day')

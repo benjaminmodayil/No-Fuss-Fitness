@@ -36,9 +36,9 @@ body.min-h-full
         p.text-red.text-xs.italic Please choose a password.
       .flex.flex-col.items-center.justify-between
         button.bg-blue.text-white.font-bold.py-2.px-4.rounded.mb-4(class='hover-bg-blue-dark', type='submit')
-          | Sign In
-        a.inline-block.align-baseline.font-bold.text-sm.text-blue(class='hover-text-blue-darker', href='#')
-          | Forgot Password?
+          | Register
+        a(href="/login", title="Log in to NoFuss").inline-block.align-baseline.font-bold.text-sm.text-blue.hover-text-blue-darker
+          | Login
 
   script(src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js")
   script(src="/dist/App.bundle.js")
