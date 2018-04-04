@@ -17,6 +17,8 @@ exports.mealsPage = (req, res, next) => {
   }
 
   Meal.find({ date: dateRange })
+    .where('user')
+    .equals(req.user.id)
     .then(items => items.map(item => item.serialize()))
     .then(items => {
       res.render('meals', {
@@ -30,17 +32,57 @@ exports.mealsPage = (req, res, next) => {
     })
 }
 
-exports.mealsEditPage = (req, res, next) => {
-  console.log(req.params)
+exports.mealsEditPage = async (req, res, next) => {
+  const meal = await Meal.findOne({ _id: req.params.id })
+
   res.render('meal-edit', {
     title: 'Edit Meal',
-    id: req.params.id
+    meal
+  })
+}
+
+exports.mealNew = async (req, res) => {
+  const reqFields = ['title', 'calories']
+
+  for (let i = 0; i < reqFields.length; i++) {
+    const field = reqFields[i]
+
+    if (!(field in req.body)) {
+      const message = `Missing required '${field}' in req.body`
+      console.error(message)
+      return res.status(400).send(message)
+    }
+  }
+
+  try {
+    let item = await Meal.create({
+      _id: new mongoose.Types.ObjectId(),
+      title: req.body.title,
+      calories: req.body.calories,
+      user: req.user.id,
+      date: moment(req.body.date).format('YYYY-MM-DD'),
+      imageURL: req.body.imageURL
+    })
+    req.flash('success', '🍔 Meal added')
+    res.status(201).redirect('/meals')
+  } catch (err) {
+    console.error(err)
+    req.flash('error', 'Something went wrong. Try again 🙇')
+    res.status(500).json({ error: 'Something went wrong.' })
+  }
+}
+
+exports.mealNewPage = async (req, res, next) => {
+  res.render('meal-new', {
+    title: 'New Meal'
   })
 }
 
 // API integration 👇 All below
 exports.getMealsAPI = (req, res, next) => {
   Meal.find()
+    .where('user')
+    .equals(req.user.id)
     .sort({ created: -1 })
     .then(items => {
       res.status(200).json({
@@ -66,8 +108,6 @@ exports.getMealIDAPI = (req, res, next) => {
 // POST Meal
 exports.postMealsAPI = async (req, res) => {
   const reqFields = ['title', 'calories']
-
-  console.log(req.user)
 
   for (let i = 0; i < reqFields.length; i++) {
     const field = reqFields[i]
@@ -127,5 +167,5 @@ exports.mealEdit = (req, res, next) => {
 
   Meal.findByIdAndUpdate(req.params.id, { $set: updated }, { new: true })
     .then(updatedItem => res.redirect('/meals'))
-    .catch(err => res.status(500).json({ message }))
+    .catch(err => res.status(500).json({ err }))
 }

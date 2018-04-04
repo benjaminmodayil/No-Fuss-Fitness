@@ -1,5 +1,4 @@
 extends layout
-include ./mixins/_form-meal.pug
 
 block content
   if locals.flashes
@@ -83,6 +82,6 @@ block content
                                 span.w-4
                                   != h.icon('close')
 
-      button.modal-launch.fixed.pin-r.pin-b.mr-4.mb-16.lg-mr-16
+      a(href="/meals/new").fixed.pin-r.pin-b.mr-4.mb-16.lg-mr-16
         span.w-10.lg-w-12
           != h.icon('add')

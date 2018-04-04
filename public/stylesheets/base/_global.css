@@ -28,6 +28,10 @@ ul {
   animation: flash 0.3s both ease;
 }
 
+.flash--success {
+  @apply .bg-green text-white;
+}
+
 .flash--error {
   @apply .bg-red text-white;
 }
@@ -50,4 +54,8 @@ ul {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+button {
+  transition: all 0.2s ease-out;
 }

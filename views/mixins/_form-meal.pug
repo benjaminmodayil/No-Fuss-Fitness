@@ -1,9 +1,18 @@
-mixin formMeal(dateValue)
-  form.form(method="POST")
-    label.block.screenreader-only(for="title") Title
-    input#title.block(type="text" name="title" value="Title" placeholder="name" required="" autocomplete="off" aria-required="true")
-    label.block.screenreader-only(for="calories" autocomplete="off") Calories
-    input#calories.block(type="text" name="calories" placeholder="0")
-    label.block.screenreader-only(for="date" value=dateValue) Date
-    input#date.block(type="date" name="date")
-    button meal +
+mixin formMeal(meal={})
+  - let action
+  if (meal && meal.id)
+    - action = `/meals/edit/${meal.id}`
+  else
+    - action = `/meals/new`
+
+  form.form(action=`${action}` method="POST").max-w-sm
+    if (meal && meal.id)
+      label(for="id").hidden ID
+      input(type="text" name="id" value=`${meal.id}`).hidden
+    label.block.text-grey-darker.text-sm.font-bold.mb-2(for="title") Title
+    input#title.block.shadow.appearance-none.border.rounded.w-full.py-2.px-3.text-grey-darker.mx-auto.mb-4(type="text" name="title" value=`${meal.title || ''}` placeholder="Meal Title" required="" autocomplete="off" aria-required="true")
+    label.block.text-grey-darker.text-sm.font-bold.mb-2(for="calories" autocomplete="off") Calories
+    input#calories.block.shadow.appearance-none.border.rounded.w-full.py-2.px-3.text-grey-darker.mx-auto.mb-4(type="number" name="calories" placeholder="0" value=`${meal.calories || ''}`)
+    label.block.text-grey-darker.text-sm.font-bold.mb-2(for="date") Date
+    input#date.block.shadow.appearance-none.border.rounded.w-full.py-2.px-3.text-grey-darker.mx-auto.mb-4(type="date" name="date" value=`${h.formatDate(meal.date)}`)
+    button.bg-green.hover-bg-green-dark.text-white.py-2.px-4.rounded Add Meal

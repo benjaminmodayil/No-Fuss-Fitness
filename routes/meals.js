@@ -18,6 +18,9 @@ router.get('/', jwtAuth, mc.mealsPage)
 router.get('/edit/:id', jwtAuth, mc.mealsEditPage)
 router.post('/edit/:id', jwtAuth, mc.mealEdit)
 
+router.get('/new', jwtAuth, mc.mealNewPage)
+router.post('/new', jwtAuth, mc.mealNew)
+
 // API meals
 router.get('/api', jwtAuth, mc.getMealsAPI)
 

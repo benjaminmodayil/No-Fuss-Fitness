@@ -35,16 +35,37 @@ const userInfoSchema = new Schema({
   _id: { type: mongoose.Schema.ObjectId },
   height: { feet: { type: Number }, inches: { type: Number } },
   initialWeight: { type: Number },
-  goalWeight: { type: Number },
-  goalDate: { type: Date },
   goalDescription: { type: String },
   user: { type: mongoose.Schema.ObjectId, ref: 'User' }
 })
 
+userInfoSchema.virtual('fullHeight').get(function() {
+  return `${this.height.feet}ft ${this.height.inches}in`
+})
+
+userInfoSchema.virtual('BMI').get(function() {
+  let inches = this.height.feet * 12 + this.height.inches
+  return (this.initialWeight / (inches * inches) * 703).toFixed(1) / 1
+})
+
+userInfoSchema.methods.serialize = function() {
+  return {
+    id: this._id,
+    height: {
+      feet: this.height.feet,
+      inches: this.height.inches
+    },
+    fullHeight: this.fullHeight,
+    initialWeight: this.initialWeight,
+    BMI: this.BMI,
+    goalDescription: this.goalDescription,
+    user: this.user
+  }
+}
+
 const userProgressSchema = new Schema({
   _id: { type: mongoose.Schema.ObjectId },
   weight: { type: Number },
-  // mood: { type: String },
   date: { type: Date, default: moment() },
   user: { type: mongoose.Schema.ObjectId, ref: 'User' }
 })
@@ -122,5 +143,6 @@ const User = mongoose.model('User', userSchema)
 const Meal = mongoose.model('Meal', mealSchema)
 const Exercise = mongoose.model('Exercise', exerciseSchema)
 const Progress = mongoose.model('Progress', userProgressSchema)
+const Info = mongoose.model('Info', userInfoSchema)
 
-module.exports = { User, Meal, Exercise, Progress }
+module.exports = { User, Meal, Exercise, Progress, Info }

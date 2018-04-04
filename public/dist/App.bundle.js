@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 144);
+/******/ 	return __webpack_require__(__webpack_require__.s = 145);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -1898,7 +1898,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             try {
                 oldLocale = globalLocale._abbr;
                 var aliasedRequire = require;
-                __webpack_require__(177)("./" + name);
+                __webpack_require__(178)("./" + name);
                 getSetGlobalLocale(oldLocale);
             } catch (e) {}
         }
@@ -4473,7 +4473,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     return hooks;
 });
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(176)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(177)(module)))
 
 /***/ }),
 /* 1 */
@@ -4483,9 +4483,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 
 module.exports = __webpack_require__(9);
-module.exports.easing = __webpack_require__(150);
-module.exports.canvas = __webpack_require__(151);
-module.exports.options = __webpack_require__(152);
+module.exports.easing = __webpack_require__(151);
+module.exports.canvas = __webpack_require__(152);
+module.exports.options = __webpack_require__(153);
 
 /***/ }),
 /* 2 */
@@ -4666,10 +4666,10 @@ exports.$$ = $$;
 
 
 module.exports = {};
-module.exports.Arc = __webpack_require__(158);
-module.exports.Line = __webpack_require__(159);
-module.exports.Point = __webpack_require__(160);
-module.exports.Rectangle = __webpack_require__(161);
+module.exports.Arc = __webpack_require__(159);
+module.exports.Line = __webpack_require__(160);
+module.exports.Point = __webpack_require__(161);
+module.exports.Rectangle = __webpack_require__(162);
 
 /***/ }),
 /* 6 */
@@ -5176,9 +5176,9 @@ module.exports = {
 "use strict";
 
 
-exports.mealModalTemplate = '\n  <div class="modal--blur">\n  </div>\n  <div class="modal-inner flex flex-col rounded p-4">\n    <button class="modal-close self-end bg-red text-white py-2 px-4 rounded">\n      <span class="screenreader-only">close</span>\n      <img src="/images/icons/icon-close-white.svg" alt="">\n    </button>\n    <h2 class="mb-16">\n      <span class="block text-center text-lg font-normal">\n        Add\n        <span class="modal-type">item</span> for\n        <span class="modal-day block text-blue text-2xl font-bold mt-1">Tuesday</span>\n      </span>\n    </h2>\n    <form method="POST" class="form px-8">\n      <label class="block text-grey-darker text-sm font-bold mb-2" for="title">Title</label>\n      <input class="block shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mx-auto mb-4" type="text" id="title" name="title" value="Title" placeholder="Meal name" required autocomplete="off"\n        aria-required="true">\n      <label class="block text-grey-darker text-sm font-bold mb-2" for="calories">Calories</label>\n      <input class="block shadow appearance-none border rounded w-1-6 py-2 px-3 text-grey-darker mb-4" type="number" id="calories" name="calories" placeholder="0" autocomplete="off">\n      <label class="block screenreader-only" for="date">Date</label>\n      <input class="block screenreader-only" type="date" id="date" name="date">\n      <button class="modal-submit bg-green hover:bg-green-dark text-white font-bold py-2 px-4 mt-8 rounded float-right" type="submit">add +</button>\n    </form>\n  </div>\n  ';
+exports.mealModalTemplate = '\n  <div class="modal--blur">\n  </div>\n  <div class="modal-inner flex flex-col rounded p-4">\n    <button class="modal-close self-end bg-red text-white py-2 px-4 rounded">\n      <span class="screenreader-only">close</span>\n      <img src="/images/icons/icon-close-white.svg" alt="">\n    </button>\n    <h2 class="mb-16">\n      <span class="block text-center text-lg font-normal">\n        Add\n        <span class="modal-type">item</span> for\n        <span class="modal-day block text-blue text-2xl font-bold mt-1">Tuesday</span>\n      </span>\n    </h2>\n    <form action="/meals/new" method="POST" class="form px-8">\n      <label class="block text-grey-darker text-sm font-bold mb-2" for="title">Title</label>\n      <input class="block shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mx-auto mb-4" type="text" id="title" name="title" value="Title" placeholder="Meal name" required autocomplete="off"\n        aria-required="true">\n      <label class="block text-grey-darker text-sm font-bold mb-2" for="calories">Calories</label>\n      <input class="block shadow appearance-none border rounded w-1-6 py-2 px-3 text-grey-darker mb-4" type="number" id="calories" name="calories" placeholder="0" autocomplete="off">\n      <label class="block screenreader-only" for="date">Date</label>\n      <input class="block screenreader-only" type="date" id="date" name="date">\n      <button class="modal-submit bg-green hover:bg-green-dark text-white font-bold py-2 px-4 mt-8 rounded float-right" type="submit">add +</button>\n    </form>\n  </div>\n  ';
 
-exports.exerciseModalTemplate = '\n<div class="modal--blur">\n</div>\n<div class="modal-inner flex flex-col rounded p-4">\n  <button class="modal-close self-end bg-red text-white py-2 px-4 rounded">\n    <span class="screenreader-only">close</span>\n    <img src="/images/icons/icon-close-white.svg" alt="">\n  </button>\n  <h2 class="mb-16">\n    <span class="block text-center text-lg font-normal">\n      Add\n      <span class="modal-type">item</span> for\n      <span class="modal-day block text-blue text-2xl font-bold mt-1">Tuesday</span>\n    </span>\n  </h2>\n  <form method="POST" class="form form--exercise px-8">\n    <label class="block text-grey-darker text-sm font-bold mb-2" for="title">Title</label>\n    <input class="block shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mx-auto mb-4" type="text" id="title" name="title" value="Title" placeholder="exercise name" required autocomplete="off" aria-required="true">\n\n    <div class="flex my-8">\n      <div class="w-1-2 flex justify-center">\n        <input class="mr-2" type="radio" id="type-1" name="type" value="reps">\n        <label for="type-1">Reps</label>\n      </div>\n\n      <div class="w-1-2 flex justify-center">\n        <input class="mr-2" type="radio" id="type-2" name="type" value="run">\n        <label for="type-2">Run</label>\n      </div>\n    </div>\n\n    <div class="screenreader-only modal--rep">\n      <label class="block text-grey-darker text-sm font-bold mb-2" for="reps">Reps</label>\n      <input class="block shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mx-auto mb-4" type="text" id="reps" name="reps" placeholder="reps #" autocomplete="off">\n\n      <label class="block text-grey-darker text-sm font-bold mb-2" for="sets">Sets</label>\n      <input class="block shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mx-auto mb-4" type="text" id="sets" name="sets" placeholder="sets #" autocomplete="off" aria-required="true">\n    </div>\n\n    <div class="screenreader-only modal--run">\n      <label class="block text-grey-darker text-sm font-bold mb-2" for="distance">Distance</label>\n      <input class="block shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mx-auto mb-4" type="text" id="distance" name="distance" placeholder="distance # in miles" autocomplete="off" aria-required="true">\n\n      <label class="block text-grey-darker text-sm font-bold mb-2" for="time">Time</label>\n      <input class="block shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mx-auto mb-4" type="text" id="time" name="time" placeholder="time" autocomplete="off" aria-required="true">\n\n      <label class="block text-grey-darker text-sm font-bold mb-2" for="calories">Calories</label>\n      <input class="block shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mx-auto mb-4" type="text" id="calories" name="calories" placeholder="0">\n    </div>\n    <label class="block text-grey-darker text-sm font-bold mb-2" for="date">Date</label>\n    <input class="block shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mx-auto mb-4" type="date" id="date" name="date">\n\n    <button class="modal-submit bg-green hover:bg-green-dark text-white font-bold py-2 px-4 mt-8 rounded float-right" type="submit">add +</button>\n  </form>\n</div>\n  ';
+exports.exerciseModalTemplate = '\n<div class="modal--blur">\n</div>\n<div class="modal-inner flex flex-col rounded p-4">\n  <button class="modal-close self-end bg-red text-white py-2 px-4 rounded">\n    <span class="screenreader-only">close</span>\n    <img src="/images/icons/icon-close-white.svg" alt="">\n  </button>\n  <h2 class="mb-16">\n    <span class="block text-center text-lg font-normal">\n      Add\n      <span class="modal-type">item</span> for\n      <span class="modal-day block text-blue text-2xl font-bold mt-1">Tuesday</span>\n    </span>\n  </h2>\n  <form action="/exercises/new" method="POST" class="form form--exercise px-8">\n    <label class="block text-grey-darker text-sm font-bold mb-2" for="title">Title</label>\n    <input class="block shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mx-auto mb-4" type="text" id="title" name="title" value="Title" placeholder="exercise name" required autocomplete="off" aria-required="true">\n\n    <div class="flex my-8">\n      <div class="w-1-2 flex justify-center">\n        <input class="mr-2" type="radio" id="type-1" name="type" value="reps">\n        <label for="type-1">Rep based</label>\n      </div>\n\n      <div class="w-1-2 flex justify-center">\n        <input class="mr-2" type="radio" id="type-2" name="type" value="run">\n        <label for="type-2">Cardio based</label>\n      </div>\n    </div>\n\n    <div class="screenreader-only modal--rep">\n      <label class="block text-grey-darker text-sm font-bold mb-2" for="reps">Reps</label>\n      <input class="block shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mx-auto mb-4" type="text" id="reps" name="reps" placeholder="reps #" autocomplete="off">\n\n      <label class="block text-grey-darker text-sm font-bold mb-2" for="sets">Sets</label>\n      <input class="block shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mx-auto mb-4" type="text" id="sets" name="sets" placeholder="sets #" autocomplete="off" aria-required="true">\n    </div>\n\n    <div class="screenreader-only modal--run">\n      <label class="block text-grey-darker text-sm font-bold mb-2" for="distance">Distance</label>\n      <input class="block shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mx-auto mb-4" type="text" id="distance" name="distance" placeholder="distance # in miles" autocomplete="off" aria-required="true">\n\n      <label class="block text-grey-darker text-sm font-bold mb-2" for="time">Time</label>\n      <input class="block shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mx-auto mb-4" type="text" id="time" name="time" placeholder="time" autocomplete="off" aria-required="true">\n\n      <label class="block text-grey-darker text-sm font-bold mb-2" for="calories">Calories</label>\n      <input class="block shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mx-auto mb-4" type="text" id="calories" name="calories" placeholder="0">\n    </div>\n    <label class="block text-grey-darker text-sm font-bold mb-2" for="date">Date</label>\n    <input class="block shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mx-auto mb-4" type="date" id="date" name="date">\n\n    <button class="modal-submit bg-green hover:bg-green-dark text-white font-bold py-2 px-4 mt-8 rounded float-right" type="submit">add +</button>\n  </form>\n</div>\n  ';
 exports.itemTemplate = function (obj, type) {
   var listItem = document.createElement('li');
   listItem.dataset.id = obj._id;
@@ -5569,24 +5569,6 @@ function cookiePlease(name) {
   if (match) return match[1];
 }
 var jwt = cookiePlease('jwt');
-console.log(jwt);
-// update (needs data in template first)
-// let updateDB = identification => {
-//   let listItem = $(`[data-id='${identification}']`)
-//   console.log(listItem)
-//   let editableTitle = listItem.querySelector(`#todo-title--update`)
-//   let editableContent = listItem.querySelector(`#todo-content--update`)
-//   const title = editableTitle.value || ''
-//   const content = editableContent.value || ''
-//   const id = editableTitle.closest('li').dataset.id
-//   console.log('update input ran')
-//   let editableTitles = listItem.querySelectorAll('#todo-title--update')
-//   if (editableTitles.length > 1) {
-//     console.log('ISSUE')
-//   }
-
-//   fetchItem(`/todos/${id}`, { id, title, content }, 'PUT')
-// }
 
 var fetchItem = function fetchItem(url, data) {
   var meth = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'GET';
@@ -5634,11 +5616,8 @@ var addThis = function addThis(e) {
   fetchItem(pathname + '/api', dbData, 'POST').then(function () {
     clearForm(form);
   }).then(function () {
-    console.log('1');
     pathname === '/progress' ? '' : fetchLatest(pathname, dbData);
-    console.log('2');
     checkForContainer();
-    console.log('3');
   }).catch(function (err) {
     console.log(err);
   });
@@ -5664,8 +5643,7 @@ var fetchLatest = function fetchLatest(pathname, data) {
     date = _moment2.default.utc(date).format('YYYY-MM-DD');
     var type = (0, _bling.$)('[data-date="' + date + '"]').closest('.today-wrapper') ? 'featured' : 'normal';
     if ((0, _bling.$)('[data-date="' + date + '"]')) {
-      (0, _bling.$)('[data-date="' + date + '"]').nextElementSibling.append((0, _templating.itemTemplate)(items[0], type));
-      checkTodaysCalories();
+      (0, _bling.$)('[data-date="' + date + '"]').nextElementSibling.prepend((0, _templating.itemTemplate)(items[0], type));
     }
   });
 };
@@ -5736,10 +5714,8 @@ var modalOpen = function modalOpen(e) {
 
   var modalCloseBtn = (0, _bling.$)('.modal-close');
   modalCloseBtn.on('click', modalClose);
-
-  var modalSubmit = (0, _bling.$)('.modal-submit').closest('.form');
-  modalSubmit.on('submit', addThis.bind(undefined));
   modalSubmit.on('submit', modalClose);
+  checkTodaysCalories();
 };
 
 var modalClose = function modalClose() {
@@ -5801,7 +5777,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _bling = __webpack_require__(4);
 
-var _chart = __webpack_require__(148);
+var _chart = __webpack_require__(149);
 
 var _chart2 = _interopRequireDefault(_chart);
 
@@ -5928,8 +5904,8 @@ var chartObj = {
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 /* MIT license */
-var convert = __webpack_require__(154);
-var string = __webpack_require__(156);
+var convert = __webpack_require__(155);
+var string = __webpack_require__(157);
 
 var Color = function Color(obj) {
 	if (obj instanceof Color) {
@@ -6751,8 +6727,8 @@ module.exports = {
 
 
 var helpers = __webpack_require__(1);
-var basic = __webpack_require__(162);
-var dom = __webpack_require__(163);
+var basic = __webpack_require__(163);
+var dom = __webpack_require__(164);
 
 // @TODO Make possible to select another platform at build time.
 var implementation = dom._enabled ? dom : basic;
@@ -19261,57 +19237,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 });
 
 /***/ }),
-/* 138 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _bling = __webpack_require__(4);
-
-var _helper = __webpack_require__(10);
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var DailyLog = function () {
-  function DailyLog(el) {
-    _classCallCheck(this, DailyLog);
-
-    this.el = el;
-    this.setupDOM();
-    this.bindEvents();
-  }
-
-  _createClass(DailyLog, [{
-    key: 'setupDOM',
-    value: function setupDOM() {
-      this.form = this.el.querySelector('form');
-    }
-  }, {
-    key: 'bindEvents',
-    value: function bindEvents() {
-      this.form.addEventListener('submit', this.doThis.bind(this));
-    }
-  }, {
-    key: 'doThis',
-    value: function doThis(e) {
-      e.preventDefault();
-      (0, _helper.addThis)(e, '/progress');
-    }
-  }]);
-
-  return DailyLog;
-}();
-
-exports.default = DailyLog;
-
-/***/ }),
+/* 138 */,
 /* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19330,40 +19256,8 @@ var DayCalories = function DayCalories(el) {
   _classCallCheck(this, DayCalories);
 
   this.el = el;
-  // this.setupDOM()
-  // this.bindEvents()
   (0, _helper.checkTodaysCalories)();
-}
-
-// setupDOM() {
-//   this.calories = this.el.querySelector('.today__total-calories__count')
-// }
-
-// bindEvents() {
-//   this.calories.addEventListener('submit', this.doThis.bind(this))
-// }
-
-// doThis(e) {
-//   e.preventDefault()
-//   addThis(e, '/progress')
-// }
-;
-
-// var in_dom = document.body.contains(element);
-// var observer = new MutationObserver(function(mutations) {
-//     if (document.body.contains(element)) {
-//         if (!in_dom) {
-//             console.log("element inserted");
-//         }
-//         in_dom = true;
-//     } else if (in_dom) {
-//         in_dom = false;
-//         console.log("element removed");
-//     }
-
-// });
-// observer.observe(document.body, {childList: true});
-
+};
 
 exports.default = DayCalories;
 
@@ -19372,73 +19266,65 @@ exports.default = DayCalories;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-// export default class LoginForm {
-//   constructor(el) {
-//     this.el = el
-//     this.setupDOM()
-//     this.bindEvents()
-//   }
 
-//   setupDOM() {
-//     this.form = this.el
-//     this.inputs = this.form.querySelectorAll('[name]')
-//     this.globalToken = null
-//   }
 
-//   bindEvents() {
-//     this.form.addEventListener('submit', this.formSubmit.bind(this))
-//   }
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-//   runTest() {
-//     console.log('SUCCESS')
-//   }
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-//   formSubmit(e) {
-//     e.preventDefault()
-//     let parsedData = {}
-//     this.inputs.forEach(i => (parsedData[i.name] = i.value))
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
-//     let headers = {
-//       body: JSON.stringify(parsedData),
-//       credentials: 'same-origin',
-//       headers: {
-//         'content-type': 'application/json',
-//         Authorization: 'Bearer ' + this.globalToken
-//       },
-//       method: 'POST'
-//       // redirect: '/api/auth/login'
-//     }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-//     fetch('/api/auth/login', headers)
-//       .then(data => {
-//         console.log(data)
-//         if (data.status === 401) {
-//           throw 'Login not working.'
-//         } else if (data.status === 400) {
-//           throw 'Field missing.'
-//         } else {
-//           return data.json()
-//         }
-//       })
-//       .then(res => {
-//         // this.globalToken = res.authToken
-//         localStorage.setItem('token', res.authToken)
-//         // window.location.replace(res.url)
-//       })
-//       .catch(err => {
-//         console.error(err)
-//       })
-//   }
+var ExerciseForm = function () {
+  function ExerciseForm(el) {
+    _classCallCheck(this, ExerciseForm);
 
-//   login(e) {
-//     //   e.preventDefault()
-//     //   addThis(e, '/progress')
-//   }
-// }
+    this.el = el;
+    this.setupDOM();
+    this.bindEvents();
+  }
 
+  _createClass(ExerciseForm, [{
+    key: 'setupDOM',
+    value: function setupDOM() {
+      this.form = this.el;
+      this.items = [].concat(_toConsumableArray(this.form.querySelectorAll('[name="type"]')));
+      this.item1 = this.items[0];
+      this.item2 = this.items[1];
+    }
+  }, {
+    key: 'bindEvents',
+    value: function bindEvents() {
+      var _this = this;
+
+      this.items.map(function (i) {
+        return i.addEventListener('click', _this.switchTypeInForm.bind(_this));
+      });
+    }
+  }, {
+    key: 'switchTypeInForm',
+    value: function switchTypeInForm() {
+      if (this.item1.checked) {
+        this.form.querySelector('.modal--run').classList.add('screenreader-only');
+        this.form.querySelector('.modal--rep').classList.remove('screenreader-only');
+      } else if (this.item2.checked) {
+        this.form.querySelector('.modal--run').classList.remove('screenreader-only');
+        this.form.querySelector('.modal--rep').classList.add('screenreader-only');
+      }
+    }
+  }]);
+
+  return ExerciseForm;
+}();
+
+exports.default = ExerciseForm;
 
 /***/ }),
-/* 141 */
+/* 141 */,
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19490,7 +19376,7 @@ var Nav = function () {
 exports.default = Nav;
 
 /***/ }),
-/* 142 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19552,66 +19438,14 @@ var Pages = function () {
 exports.default = Pages;
 
 /***/ }),
-/* 143 */
+/* 144 */,
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var Example = function () {
-  function Example(el) {
-    _classCallCheck(this, Example);
-
-    this.el = el;
-    console.log(el.textContent, '- From the example module');
-  }
-
-  _createClass(Example, [{
-    key: 'setupDOM',
-    value: function setupDOM() {
-      this.navLinks = this.el.querySelectorAll('.home__scroll-navigation__inner__links');
-      this.homeSections = this.el.querySelectorAll('.section');
-    }
-  }, {
-    key: 'bindEvents',
-    value: function bindEvents() {
-      var _this = this;
-
-      this.navLinks.forEach(function (link) {
-        link.addEventListener('click', _this.scrollTrigger.bind(_this));
-      });
-    }
-  }, {
-    key: 'scrollTrigger',
-    value: function scrollTrigger(e) {
-      e.preventDefault();
-      var targetedSection = e.currentTarget.getAttribute('href').replace(/"/g, '');
-      this.domTarget = document.querySelector(targetedSection);
-      this.domTarget.scrollIntoView({ behavior: 'smooth' });
-    }
-  }]);
-
-  return Example;
-}();
-
-exports.default = Example;
-
-/***/ }),
-/* 144 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _style = __webpack_require__(145);
+var _style = __webpack_require__(146);
 
 var _style2 = _interopRequireDefault(_style);
 
@@ -19621,7 +19455,7 @@ var _templating = __webpack_require__(8);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-__webpack_require__(146);
+__webpack_require__(147);
 
 
 var moduleElements = document.querySelectorAll('[data-module]');
@@ -19629,44 +19463,44 @@ var moduleElements = document.querySelectorAll('[data-module]');
 for (var i = 0; i < moduleElements.length; i++) {
   var el = moduleElements[i];
   var name = el.getAttribute('data-module');
-  var Module = __webpack_require__(147)("./" + name).default;
+  var Module = __webpack_require__(148)("./" + name).default;
   new Module(el);
 }
 
 /***/ }),
-/* 145 */
+/* 146 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 146 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 /***/ }),
-/* 147 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"./ChartDashboard": 11,
 	"./ChartDashboard.js": 11,
-	"./DailyLog": 138,
-	"./DailyLog.js": 138,
 	"./DayCalories": 139,
 	"./DayCalories.js": 139,
-	"./LoginForm": 140,
-	"./LoginForm.js": 140,
-	"./Nav": 141,
-	"./Nav.js": 141,
-	"./Pages": 142,
-	"./Pages.js": 142,
+	"./ExerciseForm": 140,
+	"./ExerciseForm.js": 140,
+	"./ExercisePage": 204,
+	"./ExercisePage.js": 204,
+	"./MealPage": 205,
+	"./MealPage.js": 205,
+	"./Nav": 142,
+	"./Nav.js": 142,
+	"./Pages": 143,
+	"./Pages.js": 143,
 	"./bling": 4,
 	"./bling.js": 4,
-	"./example": 143,
-	"./example.js": 143,
 	"./templating": 8,
 	"./templating.js": 8
 };
@@ -19684,10 +19518,10 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 147;
+webpackContext.id = 148;
 
 /***/ }),
-/* 148 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19696,12 +19530,12 @@ webpackContext.id = 147;
 /**
  * @namespace Chart
  */
-var Chart = __webpack_require__(149)();
+var Chart = __webpack_require__(150)();
 
 Chart.helpers = __webpack_require__(1);
 
 // @todo dispatch these helpers into appropriated helpers/helpers.* file and write unit tests!
-__webpack_require__(153)(Chart);
+__webpack_require__(154)(Chart);
 
 Chart.defaults = __webpack_require__(2);
 Chart.Element = __webpack_require__(3);
@@ -19712,40 +19546,40 @@ Chart.platform = __webpack_require__(14);
 Chart.plugins = __webpack_require__(15);
 Chart.Ticks = __webpack_require__(7);
 
-__webpack_require__(164)(Chart);
 __webpack_require__(165)(Chart);
 __webpack_require__(166)(Chart);
 __webpack_require__(167)(Chart);
 __webpack_require__(168)(Chart);
 __webpack_require__(169)(Chart);
-
 __webpack_require__(170)(Chart);
+
 __webpack_require__(171)(Chart);
 __webpack_require__(172)(Chart);
 __webpack_require__(173)(Chart);
 __webpack_require__(174)(Chart);
 __webpack_require__(175)(Chart);
+__webpack_require__(176)(Chart);
 
 // Controllers must be loaded after elements
 // See Chart.core.datasetController.dataElementType
-__webpack_require__(178)(Chart);
 __webpack_require__(179)(Chart);
 __webpack_require__(180)(Chart);
 __webpack_require__(181)(Chart);
 __webpack_require__(182)(Chart);
 __webpack_require__(183)(Chart);
 __webpack_require__(184)(Chart);
-
 __webpack_require__(185)(Chart);
+
 __webpack_require__(186)(Chart);
 __webpack_require__(187)(Chart);
 __webpack_require__(188)(Chart);
 __webpack_require__(189)(Chart);
 __webpack_require__(190)(Chart);
 __webpack_require__(191)(Chart);
+__webpack_require__(192)(Chart);
 
 // Loading built-it plugins
-var plugins = __webpack_require__(192);
+var plugins = __webpack_require__(193);
 for (var k in plugins) {
   if (plugins.hasOwnProperty(k)) {
     Chart.plugins.register(plugins[k]);
@@ -19817,7 +19651,7 @@ Chart.canvasHelpers = Chart.helpers.canvas;
 Chart.layoutService = Chart.layouts;
 
 /***/ }),
-/* 149 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19872,7 +19706,7 @@ module.exports = function () {
 };
 
 /***/ }),
-/* 150 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20128,7 +19962,7 @@ module.exports = {
 helpers.easingEffects = effects;
 
 /***/ }),
-/* 151 */
+/* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20344,7 +20178,7 @@ helpers.drawRoundedRectangle = function (ctx) {
 };
 
 /***/ }),
-/* 152 */
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20446,7 +20280,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 153 */
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21042,13 +20876,13 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 154 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var conversions = __webpack_require__(155);
+var conversions = __webpack_require__(156);
 
 var convert = function convert() {
   return new Converter();
@@ -21138,7 +20972,7 @@ Converter.prototype.getValues = function (space) {
 module.exports = convert;
 
 /***/ }),
-/* 155 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21841,14 +21675,14 @@ for (var key in cssKeywords) {
 }
 
 /***/ }),
-/* 156 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 /* MIT license */
-var colorNames = __webpack_require__(157);
+var colorNames = __webpack_require__(158);
 
 module.exports = {
    getRgba: getRgba,
@@ -22058,7 +21892,7 @@ for (var name in colorNames) {
 }
 
 /***/ }),
-/* 157 */
+/* 158 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22216,7 +22050,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 158 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22329,7 +22163,7 @@ module.exports = Element.extend({
 });
 
 /***/ }),
-/* 159 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22426,7 +22260,7 @@ module.exports = Element.extend({
 });
 
 /***/ }),
-/* 160 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22538,7 +22372,7 @@ module.exports = Element.extend({
 });
 
 /***/ }),
-/* 161 */
+/* 162 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22756,7 +22590,7 @@ module.exports = Element.extend({
 });
 
 /***/ }),
-/* 162 */
+/* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22779,7 +22613,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 163 */
+/* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23209,7 +23043,7 @@ helpers.addEvent = _addEventListener;
 helpers.removeEvent = _removeEventListener;
 
 /***/ }),
-/* 164 */
+/* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23386,7 +23220,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 165 */
+/* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24330,7 +24164,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 166 */
+/* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24666,7 +24500,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 167 */
+/* 168 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24718,7 +24552,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 168 */
+/* 169 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25645,7 +25479,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 169 */
+/* 170 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26598,7 +26432,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 170 */
+/* 171 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26789,7 +26623,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 171 */
+/* 172 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26927,7 +26761,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 172 */
+/* 173 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27118,7 +26952,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 173 */
+/* 174 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27458,7 +27292,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 174 */
+/* 175 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27979,7 +27813,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 175 */
+/* 176 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28757,7 +28591,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 176 */
+/* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28787,7 +28621,7 @@ module.exports = function (module) {
 };
 
 /***/ }),
-/* 177 */
+/* 178 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -29050,10 +28884,10 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 177;
+webpackContext.id = 178;
 
 /***/ }),
-/* 178 */
+/* 179 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29547,7 +29381,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 179 */
+/* 180 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29715,7 +29549,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 180 */
+/* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30020,7 +29854,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 181 */
+/* 182 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30356,7 +30190,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 182 */
+/* 183 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30584,7 +30418,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 183 */
+/* 184 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30753,7 +30587,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 184 */
+/* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30800,7 +30634,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 185 */
+/* 186 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30816,7 +30650,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 186 */
+/* 187 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30831,7 +30665,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 187 */
+/* 188 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30847,7 +30681,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 188 */
+/* 189 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30863,7 +30697,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 189 */
+/* 190 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30879,7 +30713,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 190 */
+/* 191 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30895,7 +30729,7 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 191 */
+/* 192 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30909,19 +30743,19 @@ module.exports = function (Chart) {
 };
 
 /***/ }),
-/* 192 */
+/* 193 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = {};
-module.exports.filler = __webpack_require__(193);
-module.exports.legend = __webpack_require__(194);
-module.exports.title = __webpack_require__(195);
+module.exports.filler = __webpack_require__(194);
+module.exports.legend = __webpack_require__(195);
+module.exports.title = __webpack_require__(196);
 
 /***/ }),
-/* 193 */
+/* 194 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31245,7 +31079,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 194 */
+/* 195 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31823,7 +31657,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 195 */
+/* 196 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32077,6 +31911,27 @@ module.exports = {
 		}
 	}
 };
+
+/***/ }),
+/* 197 */,
+/* 198 */,
+/* 199 */,
+/* 200 */,
+/* 201 */,
+/* 202 */,
+/* 203 */,
+/* 204 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/***/ }),
+/* 205 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 
 /***/ })
 /******/ ]);

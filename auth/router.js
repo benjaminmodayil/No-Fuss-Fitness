@@ -3,6 +3,7 @@ const express = require('express')
 const passport = require('passport')
 const bodyParser = require('body-parser')
 const jwt = require('jsonwebtoken')
+const { Info } = require('../models')
 
 const router = express.Router()
 
@@ -25,12 +26,16 @@ const localAuth = passport.authenticate('local', {
 router.use(bodyParser.json())
 // The user provides a username and password to login
 //api/auth/login
-router.post('/login', localAuth, (req, res, next) => {
+router.post('/login', localAuth, async (req, res, next) => {
   const authToken = createAuthToken(req.user.serialize())
   res.cookie('jwt', authToken)
-  res.redirect('/overview')
-  next()
+  let infoCount = await Info.findOne({})
+    .where('user')
+    .equals(req.user.id)
+    .count()
+  infoCount === 0 ? res.redirect('/initial-details') : res.redirect('/overview')
 
+  next()
   // res.json({ authToken, userId: req.user._id })
 })
 
