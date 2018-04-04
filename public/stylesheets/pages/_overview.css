@@ -41,6 +41,7 @@
 }
 
 .log__buttons {
+  @apply .mx-auto .text-blue .p-4 .border-2 .border-blue .w-48 .block .mb-4 .text-center .no-underline;
   border-radius: 40px;
   transition: all 0.15s ease;
 }

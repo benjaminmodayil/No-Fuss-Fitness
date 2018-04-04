@@ -11,24 +11,6 @@ function cookiePlease(name) {
   if (match) return match[1]
 }
 const jwt = cookiePlease('jwt')
-console.log(jwt)
-// update (needs data in template first)
-// let updateDB = identification => {
-//   let listItem = $(`[data-id='${identification}']`)
-//   console.log(listItem)
-//   let editableTitle = listItem.querySelector(`#todo-title--update`)
-//   let editableContent = listItem.querySelector(`#todo-content--update`)
-//   const title = editableTitle.value || ''
-//   const content = editableContent.value || ''
-//   const id = editableTitle.closest('li').dataset.id
-//   console.log('update input ran')
-//   let editableTitles = listItem.querySelectorAll('#todo-title--update')
-//   if (editableTitles.length > 1) {
-//     console.log('ISSUE')
-//   }
-
-//   fetchItem(`/todos/${id}`, { id, title, content }, 'PUT')
-// }
 
 let fetchItem = (url, data, meth = 'GET') => {
   let headers = {
@@ -81,11 +63,8 @@ let addThis = (e, pathname = window.location.pathname) => {
       clearForm(form)
     })
     .then(() => {
-      console.log('1')
       pathname === '/progress' ? '' : fetchLatest(pathname, dbData)
-      console.log('2')
       checkForContainer()
-      console.log('3')
     })
     .catch(err => {
       console.log(err)
@@ -115,8 +94,9 @@ let fetchLatest = (pathname, data) => {
         ? 'featured'
         : 'normal'
       if ($(`[data-date="${date}"]`)) {
-        $(`[data-date="${date}"]`).nextElementSibling.append(itemTemplate(items[0], type))
-        checkTodaysCalories()
+        $(`[data-date="${date}"]`).nextElementSibling.prepend(
+          itemTemplate(items[0], type)
+        )
       }
     })
 }
@@ -186,10 +166,8 @@ let modalOpen = e => {
 
   let modalCloseBtn = $('.modal-close')
   modalCloseBtn.on('click', modalClose)
-
-  let modalSubmit = $('.modal-submit').closest('.form')
-  modalSubmit.on('submit', addThis.bind(this))
   modalSubmit.on('submit', modalClose)
+  checkTodaysCalories()
 }
 
 let modalClose = () => {

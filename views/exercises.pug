@@ -4,7 +4,6 @@ include ./mixins/_form-meal.pug
 block content
   main(role="main" data-module="Pages" data-name="exercises").flex-grow
     .wrapper.px-4.container.max-w-2xl.mx-auto
-      //- .quick-stats.flex.flex-col.md-flex-row.md--mx-4
       h1.screenreader-only #{title}
       h2.h2.text-center.md-text-left Week of #{h.dayMonth(bgnWeek)}
 
@@ -25,14 +24,26 @@ block content
         else if todayExercises.length > 0
           ul.flex.flex-col.md-flex-row.w-full.-mx-2.overflow-x-scroll
             each exercise in todayExercises
-              li.list-reset.px-2.text-base.mb-4.w-full.md-w-1-2.lg-w-1-3(class="item" data-id=exercise.id).flex-no-grow.flex-no-shrink
-                article.relative.bg-white.b-shadow.p-4
-                  p.item__data.py-2
+              li.item.list-reset.px-2.text-base.mb-4.w-full.md-w-1-2.lg-w-1-3.flex-no-grow.flex-no-shrink(data-id=exercise.id)
+                article.relative.bg-white.b-shadow.p-4.clearfix
+                  p.item__data.py-2.float-left.mr-16
                     span.data__title.block.mb-2 #{exercise.title}
                     if exercise.type !== 'reps'
-                      span.data__calories.block.text-xl.text-red.font-bold
-                        span.data__number #{exercise.calories}
-                        span.text-black.text-base.font-normal  cals
+                      ul.float-right.mr-4
+                        li.list-reset.text-red.text-lg #{exercise.distance}
+                          span.text-black.text-sm.ml-2 miles
+                        li.list-reset.text-red.text-lg #{exercise.time}
+                          span.text-black.text-sm.ml-2 minutes
+                        li.list-reset.text-red.text-lg #{exercise.calories}
+                          span.text-black.text-sm.ml-2 cals
+                    else
+                      ul.float-right.mr-4
+                        li.list-reset.text-red.text-lg
+                          span #{exercise.reps}
+                          span.text-black.text-sm.ml-2 reps
+                        li.list-reset.text-red.text-lg
+                          span #{exercise.sets}
+                          span.text-black.text-sm.ml-2 sets
                   .item__functions.flex.flex-col.h-full.absolute.pin-r.pin-t.w-4
                     a(href=`/exercises/edit/${exercise.id}`).item-edit.pin-t.pin-r.mt-1.absolute
                       span.w-4
@@ -60,13 +71,25 @@ block content
                       if h.formatDate(exercise.date) === dateRender(d)
                         - const exerciseID = '' + exercise.id + ''
                         li.list-reset.b-shadow.px-2.text-base.mb-4.bg-white(class="item" data-id=exercise.id)
-                          article.relative
-                            p.item__data.py-2
+                          article.relative.clearfix.p-2
+                            p.item__data.py-2.float-left
                               span.data__title.block.mb-2 #{exercise.title}
                               if exercise.type !== 'reps'
-                                span.data__calories.block.text-xl.text-red.font-bold
-                                  span.data__number #{exercise.calories}
-                                  span.text-black.text-base.font-normal  cals
+                                ul.float-right.mr-4
+                                  li.list-reset.text-red.text-lg #{exercise.distance}
+                                    span.text-black.text-sm.ml-2 miles
+                                  li.list-reset.text-red.text-lg #{exercise.time}
+                                    span.text-black.text-sm.ml-2 minutes
+                                  li.list-reset.text-red.text-lg #{exercise.calories}
+                                    span.text-black.text-sm.ml-2 cals
+                              else
+                                ul.float-right.mr-4
+                                  li.list-reset.text-red.text-lg
+                                    span #{exercise.reps}
+                                    span.text-black.text-sm.ml-2 reps
+                                  li.list-reset.text-red.text-lg
+                                    span #{exercise.sets}
+                                    span.text-black.text-sm.ml-2 sets
                             .item__functions.flex.flex-col.h-full.absolute.pin-r.pin-t.w-4
                               a(href=`/exercises/edit/${exercise.id}`).item-edit.pin-t.pin-r.mt-1.absolute
                                 span.w-4
@@ -75,6 +98,6 @@ block content
                                 span.w-4
                                   != h.icon('close')
 
-      button.modal-launch.fixed.pin-r.pin-b.mr-4.mb-16.lg-mr-16
+      a(href="/exercises/new").fixed.pin-r.pin-b.mr-4.mb-16.lg-mr-16
         span.w-10.lg-w-12
           != h.icon('add')

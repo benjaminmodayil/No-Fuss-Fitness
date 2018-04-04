@@ -8,7 +8,7 @@ router.get('/', (req, res, next) => {
   res.render('index', { title: 'No Fuss Fitness' })
 })
 
-router.get('/login', (req, res, next) => {
+router.get('/login', async (req, res, next) => {
   res.render('login', { title: 'Login | NoFuss' })
 })
 

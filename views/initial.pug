@@ -17,7 +17,7 @@ body.min-h-full
   main.initial-details.w-full.flex.flex-col.justify-center.items-center.py-32.bg-blue
     h1.h1.text-center.text-white Set your goal and starting stats.
     .form-container.max-w-sm.w-full
-      form(action="/api/auth/login" method="POST" data-module="LoginForm").bg-white.shadow-md.rounded.px-8.pt-6.pb-8.mb-4.w-full
+      form(action="/api/info" method="POST" data-module="LoginForm").bg-white.shadow-md.rounded.px-8.pt-6.pb-8.mb-4.w-full
         fieldset
           .mb-4
             legend Height
@@ -28,14 +28,14 @@ body.min-h-full
                 | Inches
               input#feet.shadow.appearance-none.border.rounded.w-full.py-2.px-3.text-grey-darker(type='number', placeholder='inches' name="inches")
         .mb-6
-          label.block.text-grey-darker.text-sm.font-bold.mb-2(for='weight')
+          label.block.text-grey-darker.text-sm.font-bold.mb-2(for='initialWeight')
             | Starting Weight
-          input#password.shadow.appearance-none.border.rounded.w-full.py-2.px-3.text-grey-darker.mb-3(type='number', placeholder='Number' name="weight")
+          input#initialWeight.shadow.appearance-none.border.rounded.w-full.py-2.px-3.text-grey-darker.mb-3(type='number', placeholder='Number' name="initialWeight")
           p.text-red.text-xs.italic Please choose a password.
         .mb-6
-          label.block.text-grey-darker.text-sm.font-bold.mb-2(for='goal')
+          label.block.text-grey-darker.text-sm.font-bold.mb-2(for='goalDescription')
             | Goal
-          textarea#password.shadow.appearance-none.border.rounded.w-full.py-2.px-3.text-grey-darker.mb-3(placeholder='I want to lose weight before my wedding.' name="goal")
+          textarea#goalDescription.shadow.appearance-none.border.rounded.w-full.py-2.px-3.text-grey-darker.mb-3(placeholder='I want to lose weight before my wedding.' name="goalDescription" maxlength="50")
         .flex.flex-col.items-center.justify-between
           button.bg-green.text-white.font-bold.py-2.px-4.rounded.mb-4.hover-bg-green-dark(type='submit')
             | Continue

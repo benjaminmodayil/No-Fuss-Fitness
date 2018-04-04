@@ -1,0 +1,35 @@
+mixin formExercise(exercise={})
+  - let action
+  if (exercise && exercise.id)
+    - action = `/exercises/edit/${exercise.id}`
+  else
+    - action = `/exercises/new`
+
+  form.form(action=`${action}` method="POST" data-module="ExerciseForm").max-w-sm
+    if (exercise && exercise.id)
+      label(for="id").hidden ID
+      input(type="text" name="id" value=`${exercise.id}`).hidden
+    label.block.text-grey-darker.text-sm.font-bold.mb-2(for="title") Title
+    input#title.block.shadow.appearance-none.border.rounded.w-full.py-2.px-3.text-grey-darker.mx-auto.mb-4(type="text" name="title" value=`${exercise.title || ''}` placeholder="exercise name" required="" autocomplete="off" aria-required="true")
+    .flex.my-8
+      .w-1-2.flex.justify-center
+        input#type-1.mr-2(type="radio" name="type" value="reps")
+        label(for="type-1") Rep based
+      .w-1-2.flex.justify-center
+        input#type-2.mr-2(type="radio" name="type" value="run")
+        label(for="type-2") Cardio based
+    .screenreader-only.modal--rep
+      label.block.text-grey-darker.text-sm.font-bold.mb-2(for="reps") Reps
+      input#reps.block.shadow.appearance-none.border.rounded.w-full.py-2.px-3.text-grey-darker.mx-auto.mb-4(type="number" name="reps" value=`${exercise.reps || ''}` placeholder="reps #" autocomplete="off")
+      label.block.text-grey-darker.text-sm.font-bold.mb-2(for="sets") Sets
+      input#sets.block.shadow.appearance-none.border.rounded.w-full.py-2.px-3.text-grey-darker.mx-auto.mb-4(type="number" name="sets" value=`${exercise.sets || ''}` placeholder="sets #" autocomplete="off" aria-required="true")
+    .screenreader-only.modal--run
+      label.block.text-grey-darker.text-sm.font-bold.mb-2(for="distance") Distance
+      input#distance.block.shadow.appearance-none.border.rounded.w-full.py-2.px-3.text-grey-darker.mx-auto.mb-4(type="number" name="distance" value=`${exercise.distance || ''}` placeholder="distance # in miles" autocomplete="off" aria-required="true")
+      label.block.text-grey-darker.text-sm.font-bold.mb-2(for="time") Time
+      input#time.block.shadow.appearance-none.border.rounded.w-full.py-2.px-3.text-grey-darker.mx-auto.mb-4(type="number" name="time" value=`${exercise.time || ''}` placeholder="time" autocomplete="off" aria-required="true")
+      label.block.text-grey-darker.text-sm.font-bold.mb-2(for="calories") Calories
+      input#calories.block.shadow.appearance-none.border.rounded.w-full.py-2.px-3.text-grey-darker.mx-auto.mb-4(type="number" name="calories" placeholder="0"  value=`${exercise.calories || ''}`)
+    label.block.text-grey-darker.text-sm.font-bold.mb-2(for="date") Date
+    input#date.block.shadow.appearance-none.border.rounded.w-full.py-2.px-3.text-grey-darker.mx-auto.mb-4(type="date" name="date" value=`${h.formatDate(exercise.date)}`)
+    button.bg-green.hover-bg-green-dark.text-white.py-2.px-4.rounded Add Exercise

@@ -4983,6 +4983,11 @@ ul {
           animation: a .3s both ease;
 }
 
+.flash--success {
+  background-color: #38c172;
+  color: #fff;
+}
+
 .flash--error {
   background-color: #e3342f;
   color: #fff;
@@ -5022,6 +5027,11 @@ ul {
     -webkit-transform: translateY(0);
             transform: translateY(0);
   }
+}
+
+button {
+  -webkit-transition: all .2s ease-out;
+          transition: all .2s ease-out;
 }
 
 .desktop-only,
@@ -5276,6 +5286,17 @@ span.js-menu-toggle {
 }
 
 .log__buttons {
+  margin-left: auto;
+  margin-right: auto;
+  color: #6862fa;
+  padding: 1rem;
+  border-width: 2px;
+  border-color: #6862fa;
+  width: 12rem;
+  display: block;
+  margin-bottom: 1rem;
+  text-align: center;
+  text-decoration: none;
   border-radius: 40px;
   -webkit-transition: all .15s ease;
           transition: all .15s ease;

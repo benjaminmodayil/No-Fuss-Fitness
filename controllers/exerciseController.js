@@ -1,6 +1,7 @@
 const { getDay, dateRender, today } = require('../helpers.js')
 const { Exercise } = require('../models')
 const mongoose = require('mongoose')
+const flash = require('connect-flash')
 
 var moment = require('moment')
 
@@ -24,12 +25,55 @@ exports.exercisesPage = (req, res, next) => {
   })
 }
 
-exports.exercisesEditPage = (req, res, next) => {
-  console.log(req.params)
+exports.exercisesEditPage = async (req, res, next) => {
+  const exercise = await Exercise.findOne({ _id: req.params.id })
+
   res.render('exercise-edit', {
     title: 'Edit Exercise',
-    id: req.params.id
+    exercise
   })
+}
+
+exports.exerciseNewPage = async (req, res, next) => {
+  res.render('exercise-new', {
+    title: 'New Exercise'
+  })
+}
+
+exports.exerciseNew = async (req, res, next) => {
+  const requiredFields = ['title', 'type']
+
+  for (let i = 0; i < requiredFields.length; i++) {
+    const field = requiredFields[i]
+
+    if (!(field in req.body)) {
+      const message = `Missing required '${field}' in req.body`
+      console.error(message)
+      return res.status(400).send(message)
+    }
+  }
+
+  Exercise.create({
+    _id: new mongoose.Types.ObjectId(),
+    title: req.body.title,
+    date: req.body.date,
+    type: req.body.type,
+    reps: req.body.reps,
+    sets: req.body.sets,
+    distance: req.body.distance,
+    time: req.body.time,
+    calories: req.body.calories,
+    user: req.user.id
+  })
+    .then(exercise => {
+      req.flash('success', '🏋️‍ Exercise added.')
+      res.status(201).redirect('/exercises')
+    })
+    .catch(err => {
+      console.error(err)
+      req.flash('error', '😢 There has been an error. Try again.')
+      res.status(500).redirect('/exercises/new')
+    })
 }
 
 // API Exercises
@@ -119,6 +163,7 @@ exports.exerciseEdit = (req, res, next) => {
 
   const updated = {}
   const updateableFields = [
+    'id',
     'title',
     'date',
     'type',
@@ -135,7 +180,8 @@ exports.exerciseEdit = (req, res, next) => {
     }
   })
 
+  let message = 'Oops'
   Exercise.findByIdAndUpdate(req.params.id, { $set: updated }, { new: true })
-    .then(updatedItem => res.status(204).end())
-    .catch(err => res.status(500).json({ message }))
+    .then(updatedItem => res.redirect('/exercises'))
+    .catch(err => res.status(500).json({ err }))
 }

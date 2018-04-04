@@ -16,6 +16,7 @@ var overview = require('./routes/overview')
 var meals = require('./routes/meals')
 var exercises = require('./routes/exercises')
 var progressAPI = require('./routes/progress')
+var infoAPI = require('./routes/info')
 
 require('dotenv').config({ path: 'variables.env' })
 
@@ -28,8 +29,7 @@ var helpers = require('./helpers')
 const mongoose = require('mongoose')
 mongoose.Promise = global.Promise
 
-// const { DATABASE_URL, PORT } = require('./config')
-const { User, Meal, Exercise, Progress } = require('./models')
+const { User, Meal, Exercise, Progress, Info } = require('./models')
 
 var app = express()
 
@@ -96,6 +96,7 @@ app.use('/overview', overview)
 app.use('/meals', meals)
 app.use('/exercises', exercises)
 app.use('/progress/api', progressAPI)
+app.use('/api/info', infoAPI)
 
 app.use((req, res, next) => {
   res.locals.h = helpers

@@ -22,6 +22,8 @@ router.get('/', jwtAuth, function(req, res, next) {
         $lt: new Date(`${req.query.to}`)
       }
     })
+      .where('user')
+      .equals(req.user.id)
       .sort({ date: -1 })
       .then(items => {
         res.json({
@@ -30,6 +32,8 @@ router.get('/', jwtAuth, function(req, res, next) {
       })
   } else {
     Progress.find()
+      .where('user')
+      .equals(req.user.id)
       .sort({ date: -1 })
       .then(items => {
         res.json({
@@ -66,21 +70,6 @@ router.post('/', jwtAuth, async (req, res) => {
     }
   }
 
-  // Progress.find({
-  //   date: {
-  //     $gte: today,
-  //     $lt: tomorrow
-  //   }
-  // })
-  //   .then(items => {
-  //     const message = `Weight already exists for the day`
-  //     if (items.length > 0) return res.status(500).send(message), console.log(message)
-  //   })
-  //   .catch(err => {
-  //     console.error(err)
-  //     res.status(500).json({ error: 'Something went wrong.' })
-  //   })
-  console.log(req.user)
   Progress.create({
     _id: new mongoose.Types.ObjectId(),
     weight: req.body.weight,

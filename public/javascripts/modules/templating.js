@@ -13,7 +13,7 @@ exports.mealModalTemplate = `
         <span class="modal-day block text-blue text-2xl font-bold mt-1">Tuesday</span>
       </span>
     </h2>
-    <form method="POST" class="form px-8">
+    <form action="/meals/new" method="POST" class="form px-8">
       <label class="block text-grey-darker text-sm font-bold mb-2" for="title">Title</label>
       <input class="block shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mx-auto mb-4" type="text" id="title" name="title" value="Title" placeholder="Meal name" required autocomplete="off"
         aria-required="true">
@@ -41,19 +41,19 @@ exports.exerciseModalTemplate = `
       <span class="modal-day block text-blue text-2xl font-bold mt-1">Tuesday</span>
     </span>
   </h2>
-  <form method="POST" class="form form--exercise px-8">
+  <form action="/exercises/new" method="POST" class="form form--exercise px-8">
     <label class="block text-grey-darker text-sm font-bold mb-2" for="title">Title</label>
     <input class="block shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mx-auto mb-4" type="text" id="title" name="title" value="Title" placeholder="exercise name" required autocomplete="off" aria-required="true">
 
     <div class="flex my-8">
       <div class="w-1-2 flex justify-center">
         <input class="mr-2" type="radio" id="type-1" name="type" value="reps">
-        <label for="type-1">Reps</label>
+        <label for="type-1">Rep based</label>
       </div>
 
       <div class="w-1-2 flex justify-center">
         <input class="mr-2" type="radio" id="type-2" name="type" value="run">
-        <label for="type-2">Run</label>
+        <label for="type-2">Cardio based</label>
       </div>
     </div>
 
