@@ -17,8 +17,10 @@ var meals = require('./routes/meals')
 var exercises = require('./routes/exercises')
 var progressAPI = require('./routes/progress')
 var infoAPI = require('./routes/info')
-
 require('dotenv').config({ path: 'variables.env' })
+
+const DATABASE_URL = process.env.DATABASE_URL
+const PORT = process.env.PORT
 
 var moment = require('moment')
 const { router: usersRouter } = require('./users')
@@ -114,15 +116,15 @@ app.use(function(req, res, next) {
 
 let server
 
-function runServer(databaseUrl, port = process.env.PORT) {
+function runServer() {
   return new Promise((resolve, reject) => {
-    mongoose.connect(databaseUrl, err => {
+    mongoose.connect(DATABASE_URL, err => {
       if (err) {
         return reject(err)
       }
       server = app
-        .listen(port, () => {
-          console.log(`Your app is listening on port ${port}`)
+        .listen(PORT, () => {
+          console.log(`Your app is listening on port ${PORT}`)
           resolve()
         })
         .on('error', err => {
@@ -148,7 +150,7 @@ function closeServer() {
 }
 
 if (require.main === module) {
-  runServer(process.env.DATABASE_URL).catch(err => console.error(err))
+  runServer().catch(err => console.error(err))
 }
 
 module.exports = { runServer, app, closeServer }

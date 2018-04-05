@@ -1,0 +1,9 @@
+language: node_js
+node_js: node
+# deploy: 
+#   provider: heroku
+#   api_key:
+#     secure: asdfasdfs
+#   app: pacific-beyond-35778
+#   on:
+#     repo: benjaminmodayil/No-Fuss-Fitness

@@ -23,19 +23,18 @@ body.min-h-full
             legend Height
               label.block.text-grey-darker.text-sm.font-bold.mb-2(for='feet')
                 | Feet
-              input#feet.shadow.appearance-none.border.rounded.w-full.py-2.px-3.text-grey-darker(type='number', placeholder='Feet' name="feet")
+              input#feet.shadow.appearance-none.border.rounded.w-full.py-2.px-3.text-grey-darker(type='number', placeholder='Feet' name="feet" required)
               label.block.text-grey-darker.text-sm.font-bold.mb-2(for='inches')
                 | Inches
-              input#feet.shadow.appearance-none.border.rounded.w-full.py-2.px-3.text-grey-darker(type='number', placeholder='inches' name="inches")
+              input#feet.shadow.appearance-none.border.rounded.w-full.py-2.px-3.text-grey-darker(type='number', placeholder='inches' name="inches" required)
         .mb-6
           label.block.text-grey-darker.text-sm.font-bold.mb-2(for='initialWeight')
             | Starting Weight
-          input#initialWeight.shadow.appearance-none.border.rounded.w-full.py-2.px-3.text-grey-darker.mb-3(type='number', placeholder='Number' name="initialWeight")
-          p.text-red.text-xs.italic Please choose a password.
+          input#initialWeight.shadow.appearance-none.border.rounded.w-full.py-2.px-3.text-grey-darker.mb-3(type='number', placeholder='Number' name="initialWeight" required)
         .mb-6
           label.block.text-grey-darker.text-sm.font-bold.mb-2(for='goalDescription')
             | Goal
-          textarea#goalDescription.shadow.appearance-none.border.rounded.w-full.py-2.px-3.text-grey-darker.mb-3(placeholder='I want to lose weight before my wedding.' name="goalDescription" maxlength="50")
+          textarea#goalDescription.shadow.appearance-none.border.rounded.w-full.py-2.px-3.text-grey-darker.mb-3(placeholder='I want to lose weight before my wedding.' name="goalDescription" maxlength="50" required)
         .flex.flex-col.items-center.justify-between
           button.bg-green.text-white.font-bold.py-2.px-4.rounded.mb-4.hover-bg-green-dark(type='submit')
             | Continue

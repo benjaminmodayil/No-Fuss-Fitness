@@ -129,10 +129,16 @@ router.post('/', jsonParser, (req, res) => {
       console.log(err)
       // Forward validation errors on to the client, otherwise give a 500
       // error because something unexpected has happened
+      req.flash('error', `${err}`)
+      res.status(201).redirect('/login')
       if (err.reason === 'ValidationError') {
-        return res.status(err.code).json(err)
+        // return res.status(err.code).json(err)
+        req.flash('error', `${err}`)
+        return res.status(500).redirect('/login')
       }
-      res.status(500).json({ code: 500, message: 'Internal server error' })
+      req.flash('error', `${err}`)
+      res.status(500).redirect('/login')
+      // res.status(500).json({ code: 500, message: 'Internal server error' })
     })
 })
 

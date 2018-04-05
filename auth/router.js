@@ -18,14 +18,11 @@ const createAuthToken = function(user) {
 
 const localAuth = passport.authenticate('local', {
   session: false,
-  // successRedirect: '/overview',
   failureRedirect: '/login',
   failureFlash: true
 })
 
 router.use(bodyParser.json())
-// The user provides a username and password to login
-//api/auth/login
 router.post('/login', localAuth, async (req, res, next) => {
   const authToken = createAuthToken(req.user.serialize())
   res.cookie('jwt', authToken)
@@ -33,7 +30,9 @@ router.post('/login', localAuth, async (req, res, next) => {
     .where('user')
     .equals(req.user.id)
     .count()
-  infoCount === 0 ? res.redirect('/initial-details') : res.redirect('/overview')
+  infoCount === 0
+    ? res.status(200).redirect('/initial-details')
+    : res.status(200).redirect('/overview')
 
   next()
   // res.json({ authToken, userId: req.user._id })
