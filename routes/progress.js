@@ -14,34 +14,17 @@ const jwtAuth = passport.authenticate('jwt', {
 
 const { Progress } = require('../models')
 
-router.get('/', jwtAuth, function(req, res, next) {
-  if (req.query.from) {
-    Progress.find({
-      date: {
-        $gte: new Date(`${req.query.from}`),
-        $lt: new Date(`${req.query.to}`)
-      }
+router.get('/', (req, res, next) => {
+  Progress.find({})
+    .where('user')
+    .equals(req.user.id)
+    .sort({ date: -1 })
+    .then(items => {
+      res.json({
+        progress: items
+      })
+      return items
     })
-      .where('user')
-      .equals(req.user.id)
-      .sort({ date: -1 })
-      .then(items => {
-        res.json({
-          progress: items
-        })
-      })
-  } else {
-    Progress.find()
-      .where('user')
-      .equals(req.user.id)
-      .sort({ date: -1 })
-      .then(items => {
-        res.json({
-          progress: items
-        })
-        return items
-      })
-  }
 })
 
 router.get('/:id', (req, res, next) => {
@@ -57,7 +40,7 @@ router.get('/:id', (req, res, next) => {
     })
 })
 
-router.post('/', jwtAuth, async (req, res) => {
+router.post('/', async (req, res) => {
   const requiredFields = ['weight']
 
   for (let i = 0; i < requiredFields.length; i++) {
