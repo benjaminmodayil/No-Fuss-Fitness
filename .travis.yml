@@ -1,7 +1,7 @@
 language: node_js
 node_js: node
 services:
-  - mongodb
+- mongodb
 deploy:
   provider: heroku
   api_key:
@@ -9,3 +9,4 @@ deploy:
   app: pacific-beyond-35778
   on:
     repo: benjaminmodayil/No-Fuss-Fitness
+env:
