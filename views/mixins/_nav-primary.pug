@@ -1,5 +1,5 @@
 mixin navPrimary(nav = {})
-  header.global-header.relative.bg-white.px-4.py-3(data-module="Nav")
+  header(role="banner").global-header.relative.bg-white.px-4.py-3(data-module="Nav")
     button.no-underline#hide-menu
       != h.icon(`menu`)
       span.screenreader-only minimize menu

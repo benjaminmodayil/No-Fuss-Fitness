@@ -1,11 +1,11 @@
 mixin navSecondary(nav = {})
-  nav.global-nav.bg-blue.pt-4.md-pt-16
+  nav(role="navigation").global-nav.bg-blue.pt-4.md-pt-16
     a.text-white.flex.items-center.no-underline.py-2.mb-4.hover-bg-blue-dark.px-4(href="/overview")
       != h.icon('brain')
       span.ml-4 Overview
     a.text-white.flex.items-center.no-underline.py-2.mb-4.hover-bg-blue-dark.px-4(href="/meals")
       != h.icon('apple')
-      span.ml-4 Log Meals
+      span.ml-4 Meals
     a.text-white.flex.items-center.no-underline.py-2.mb-4.hover-bg-blue-dark.px-4(href="/exercises")
       != h.icon('exercise')
-      span.ml-4 Add Exercises
+      span.ml-4 Exercises

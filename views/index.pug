@@ -2,11 +2,11 @@ include ./mixins/_doc.pug
 
 +doc
 body.landing-body
-  nav.landing-nav.flex.justify-end.py-2.px-4.bg-blue.md-bg-transparent
+  nav(role="navigation").landing-nav.flex.justify-end.py-2.px-4.bg-blue.md-bg-transparent
     a(href="/login", title="Log in to NoFuss").no-underline.border-2.border-white.text-white.hover-text-blue.hover-bg-white.px-4.py-2.font-bold Log in
     a(href="/signup", title="Sign-up for NoFuss").no-underline.border-2.border-green.bg-green.px-4.py-2.ml-4.font-bold.text-white.hover-text-white.hover-text-blue.hover-bg-white.hover-border-white Sign up
-  main.landing-main
-    header.landing__preamble.px-4.py-16.md-py-0.md-my-16.flex.flex-wrap.justify-center.-mx-16.bg-blue.md-bg-transparent
+  main(role="main").landing-main
+    header(role="banner").landing__preamble.px-4.py-16.md-py-0.md-my-16.flex.flex-wrap.justify-center.-mx-16.bg-blue.md-bg-transparent
       .landing__preamble__text.px-4.md-px-16.mb-16
         h1.h1.text-4xl.text-white.md-text-blue.mb-8 No-fuss
           span.block  Fitness Tracking
@@ -17,7 +17,7 @@ body.landing-body
       .landing__preamble__illustration.px-4.md-px-16
         img(src=h.svgIMG('landing/ill-jog'), alt="")
 
-    section.bg-blue.text-white.py-8.px-4.flex.justify-center
+    section(role="region").bg-blue.text-white.py-8.px-4.flex.justify-center
       h2.h2.screenreader-only Key Features
       ul.container.list-reset.flex.flex-wrap.justify-between.-mx-4.leading-normal.flex-col.md-flex-row
         li.md-w-1-3.px-4.my-8.md-my-2
@@ -30,7 +30,7 @@ body.landing-body
           h3.h3.mb-4 Exercises
           p.text-sm 💪 Get ripped... or toned. Keep track of your cardio-based or rep-based activities and keep track of all the things that keep you moving.
 
-    section.container.mx-auto.landing-extra.py-32.px-8
+    section(role="region").container.mx-auto.landing-extra.py-32.px-8
       h2.h2.screenreader-only Upcoming features
       ul
         li.landing-extra__items.container.md-mb-32
@@ -60,7 +60,7 @@ body.landing-body
             .landing-extra__image.w-full.md-w-2-5.md-px-8.flex.relative
               img(src="/images/landing/feature-soon.svg", alt="").flex-img
 
-    footer.bg-blue.py-4
+    footer(role="contentinfo").bg-blue.py-4
       p.text-white.text-sm.text-center.italic a free project created by 
         a(href="https://modayil.me", title="Benjamin Modayil's site").underline.text-white.font-bold Benjamin Modayil
 

@@ -1,7 +1,7 @@
 extends layout
 include ./mixins/_form-meal.pug
 block content
-  main.flex-grow
+  main(role="main").flex-grow
     .wrapper.px-4.container.max-w-2xl.mx-auto
       h1 #{title}
       +formMeal()

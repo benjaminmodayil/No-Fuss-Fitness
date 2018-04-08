@@ -2,7 +2,7 @@ include ./mixins/_doc.pug
 
 +doc(title)
 body.min-h-full
-  header.global-header.bg-white.px-2.py-3
+  header(role="banner").global-header.bg-white.px-2.py-3
     a.mx-auto.text-center.block.font-serif.text-blue.no-underline.hover-underline.font-bold(href="/") #{h.siteName}
   block messages
         if locals.flashes
@@ -14,7 +14,7 @@ body.min-h-full
                   .flash(class=`flash--${category}`)
                     p.flash__text!= message
                     button.flash__remove(onClick="this.parentElement.remove()") &times;
-  main.initial-details.w-full.flex.flex-col.justify-center.items-center.py-32.bg-blue
+  main(role="main").initial-details.w-full.flex.flex-col.justify-center.items-center.py-32.bg-blue
     h1.h1.text-center.text-white Set your goal and starting stats.
     .form-container.max-w-sm.w-full
       form(action="/api/info" method="POST" data-module="LoginForm").bg-white.shadow-md.rounded.px-8.pt-6.pb-8.mb-4.w-full
