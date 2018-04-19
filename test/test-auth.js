@@ -51,6 +51,7 @@ describe('Auth endpoints', function() {
         .then(res => {
           expect(res).to.redirect
           expect(res.redirects[0]).to.include('/login')
+          return
         })
         .catch(err => {
           if (err instanceof chai.AssertionError) {
