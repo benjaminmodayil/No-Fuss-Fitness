@@ -8,14 +8,14 @@ body {
   max-width: 100%;
 }
 
+ul {
+  padding-left: 0;
+}
+
 .nav-main-container main {
   @apply .bg-grey-lightest;
   padding-bottom: 10vh;
   padding-top: 10vh;
-}
-
-ul {
-  padding-left: 0;
 }
 
 .inner.inner--flashes {

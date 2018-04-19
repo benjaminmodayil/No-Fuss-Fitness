@@ -1,3 +1,7 @@
+.landing__preamble {
+  min-height: 75vh;
+}
+
 .landing__preamble__text {
   max-width: 725px;
 

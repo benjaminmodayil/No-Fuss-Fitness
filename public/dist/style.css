@@ -4950,14 +4950,14 @@ body {
   max-width: 100%;
 }
 
+ul {
+  padding-left: 0;
+}
+
 .nav-main-container main {
   background-color: #f8fafc;
   padding-bottom: 10vh;
   padding-top: 10vh;
-}
-
-ul {
-  padding-left: 0;
 }
 
 .inner.inner--flashes {
@@ -5179,6 +5179,10 @@ span.js-menu-toggle {
 .menu-flip {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
+}
+
+.landing__preamble {
+  min-height: 75vh;
 }
 
 .landing__preamble__text {
