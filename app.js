@@ -19,7 +19,7 @@ var progressAPI = require('./routes/progress')
 var infoAPI = require('./routes/info')
 require('dotenv').config({ path: 'variables.env' })
 
-const DATABASE_URL = process.env.DATABASE_URL
+const dbURL = process.env.DATABASE_URL
 const PORT = process.env.PORT
 
 var moment = require('moment')
@@ -116,9 +116,9 @@ app.use(function(req, res, next) {
 
 let server
 
-function runServer() {
+function runServer(dbURL) {
   return new Promise((resolve, reject) => {
-    mongoose.connect(DATABASE_URL, err => {
+    mongoose.connect(dbURL, err => {
       if (err) {
         return reject(err)
       }
@@ -150,7 +150,7 @@ function closeServer() {
 }
 
 if (require.main === module) {
-  runServer().catch(err => console.error(err))
+  runServer(dbURL).catch(err => console.error(err))
 }
 
 module.exports = { runServer, app, closeServer }

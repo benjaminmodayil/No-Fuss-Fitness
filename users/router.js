@@ -132,7 +132,6 @@ router.post('/', jsonParser, (req, res) => {
       req.flash('error', `${err}`)
       res.status(201).redirect('/login')
       if (err.reason === 'ValidationError') {
-        // return res.status(err.code).json(err)
         req.flash('error', `${err}`)
         return res.status(500).redirect('/login')
       }
