@@ -29,9 +29,18 @@ It also features user-protected endpoints if you need your data for some reason.
 ## Design
 
 NoFuss was designed by me, [Benjamin Modayil](https://www.modayil.me) using Sketch on Mac.
-
-Here are some screenshots and screencaptures of the different views in the application:
 ![Landing Page Scrolled](/public/images/readme/landing-page.gif)
+
+Here are some screenshots of the different views in the application:
+
+Overview/Progress Page
+![Overview/Progress Page](https://i.imgur.com/9zReRpp.png)
+
+Meal Page
+![Meal Page](https://i.imgur.com/PmKrYzv.png)
+
+Edit Page
+![Edit Page](https://i.imgur.com/6Zr0hLn.png)
 
 ## Test-Drive
 
