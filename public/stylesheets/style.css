@@ -4,7 +4,6 @@
 
 @import 'tailwindcss/utilities';
 
-/* @import 'test.css'; */
 @import 'base/_typography.css';
 @import 'base/_normalize.css';
 @import 'base/_global.css';
