@@ -16,19 +16,28 @@ body.min-h-full
                     button.flash__remove(onClick="this.parentElement.remove()") &times;
   main(role="main").login-register.w-full.flex.flex-col.justify-center.items-center.py-32.bg-blue
     h1.h1.text-center.text-white Login
-    form(action="/api/auth/login" method="POST" data-module="LoginForm").bg-white.shadow-md.rounded.px-8.pt-6.pb-8.mb-4
-      .mb-4
-        label.block.text-grey-darker.text-sm.font-bold.mb-2(for='username')
-          | Username
-        input#username.shadow.appearance-none.border.rounded.w-full.py-2.px-3.text-grey-darker(type='text', placeholder='Username' name="username")
-      .mb-6
-        label.block.text-grey-darker.text-sm.font-bold.mb-2(for='password')
-          | Password
-        input#password.shadow.appearance-none.border.border-red.rounded.w-full.py-2.px-3.text-grey-darker.mb-3(type='password', placeholder='******************' name="password")
-      .flex.flex-col.items-center.justify-between
-        button.bg-blue.text-white.font-bold.py-2.px-4.rounded.mb-4(class='hover-bg-blue-dark', type='submit')
-          | Sign In
-        a(href="/signup", title="Sign-up for NoFuss").inline-block.align-baseline.font-bold.text-sm.text-blue.hover-text-blue-darker Register
+    .bg-white.mb-4
+      form(action="/api/auth/login" method="POST" data-module="LoginForm").shadow-md.rounded.px-8.pt-6.pb-8
+        .mb-4
+          label.block.text-grey-darker.text-sm.font-bold.mb-2(for='username')
+            | Username
+          input#username.shadow.appearance-none.border.rounded.w-full.py-2.px-3.text-grey-darker(type='text', placeholder='Username' name="username")
+        .mb-6
+          label.block.text-grey-darker.text-sm.font-bold.mb-2(for='password')
+            | Password
+          input#password.shadow.appearance-none.border.border-red.rounded.w-full.py-2.px-3.text-grey-darker.mb-3(type='password', placeholder='******************' name="password")
+        .flex.flex-col.items-center.justify-between
+          button.bg-blue.text-white.font-bold.py-2.px-4.rounded.mb-4(class='hover-bg-blue-dark', type='submit')
+            | Sign In
+          a(href="/signup", title="Sign-up for NoFuss").inline-block.align-baseline.font-bold.text-sm.text-blue.hover-text-blue-darker Register
+        .mt-2
+          h2.mb-4.mt-8.text-base Test Credentials
+          span.font-semibold.text-sm Login:
+          |  TestUser
+        .mt-2
+          span.font-semibold.text-sm Password:
+          |   1234512345
+
 
   script(src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js")
   script(src="/dist/App.bundle.js")
